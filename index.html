@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanika Digital Prints & Solutions LLP</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --c:#00d4ff;--m:#ff0066;--y:#ffd700;--g:#00ff88;
+  --dark:#030309;--dark2:#07070f;
+  --glass:rgba(255,255,255,.03);--border:rgba(255,255,255,.07);
+}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:#fff;font-family:'Space Grotesk',sans-serif;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:#000}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--c),var(--m));border-radius:2px}
+
+/* all section BG canvases */
+.bg-cv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;display:block}
+/* all section content must be relative z-index:1 */
+.sec-inner{position:relative;z-index:1}
+
+/* ══ NAV ══ */
+nav{position:fixed;top:0;width:100%;z-index:999;padding:22px 64px;display:flex;align-items:center;justify-content:space-between;transition:.4s}
+nav.sc{background:rgba(3,3,9,.93);backdrop-filter:blur(24px);padding:13px 64px;border-bottom:1px solid rgba(0,212,255,.09)}
+.nlogo{font-family:'Inter',sans-serif;font-size:1rem;font-weight:900;letter-spacing:3px;background:linear-gradient(135deg,var(--c),var(--m));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nlinks{display:flex;gap:36px;list-style:none}
+.nlinks a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.5px;transition:.3s;position:relative}
+.nlinks a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--c);transition:.3s}
+.nlinks a:hover{color:var(--c)}.nlinks a:hover::after{width:100%}
+.ncta{padding:10px 26px;background:linear-gradient(135deg,var(--c),#0044ee);border:none;border-radius:30px;color:#000;font-weight:700;font-size:.8rem;cursor:pointer;text-decoration:none;letter-spacing:.5px;box-shadow:0 0 24px rgba(0,212,255,.38);transition:.3s}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 6px 36px rgba(0,212,255,.6)}
+
+/* ══ HERO ══ */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#030309}
+#hero-cv{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;align-items:center;width:100%;max-width:1320px;min-height:100vh;padding:0 64px}
+.hero-left-text{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding-top:100px;padding-bottom:60px;padding-right:40px}
+.hero-right-vis{position:relative;display:flex;align-items:center;justify-content:center;min-height:100vh}
+.cv-labels{position:absolute;inset:0;pointer-events:none;z-index:2}
+.cvl{position:absolute;padding:6px 16px;border-radius:30px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;backdrop-filter:blur(8px);border:1px solid;animation:cvFloat 3.2s ease-in-out infinite}
+.cvl-c{top:20%;left:8%;color:var(--c);border-color:rgba(0,212,255,.3);background:rgba(0,212,255,.08)}
+.cvl-m{top:52%;right:4%;color:var(--m);border-color:rgba(255,0,102,.3);background:rgba(255,0,102,.08);animation-delay:.9s}
+.cvl-y{bottom:22%;left:6%;color:var(--y);border-color:rgba(255,215,0,.3);background:rgba(255,215,0,.08);animation-delay:1.8s}
+.cvl-k{top:30%;right:6%;color:#aaaaff;border-color:rgba(170,170,255,.3);background:rgba(170,170,255,.07);animation-delay:2.7s}
+@keyframes cvFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* hero text */
+.hbadge{display:inline-flex;align-items:center;gap:8px;padding:7px 18px;background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.22);border-radius:40px;font-size:.7rem;color:var(--c);letter-spacing:2px;text-transform:uppercase;margin-bottom:26px;opacity:0;animation:aUp .7s .15s forwards}
+.hdot{width:6px;height:6px;background:var(--c);border-radius:50%;animation:hblink 1.8s infinite}
+@keyframes hblink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.8)}}
+.htitle{font-family:'Inter',sans-serif;font-weight:900;line-height:.9;letter-spacing:-3.5px;margin-bottom:24px}
+.htitle .row{display:block;overflow:hidden;padding-bottom:6px}
+.htitle .r1{font-size:clamp(2.6rem,5vw,4.8rem);color:#fff}
+.htitle .r2{font-size:clamp(2.6rem,5vw,4.8rem);background:linear-gradient(135deg,var(--c) 0%,var(--m) 50%,var(--y) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200%;animation:gsh 5s ease infinite}
+@keyframes gsh{0%,100%{background-position:0%}50%{background-position:100%}}
+.char{display:inline-block;opacity:0;transform:translateY(110%);transition:opacity .5s,transform .65s cubic-bezier(.22,.61,.36,1)}
+.char.on{opacity:1;transform:translateY(0)}
+.hsub{font-size:1rem;color:rgba(255,255,255,.48);line-height:1.82;max-width:480px;margin-bottom:36px;opacity:0;animation:aUp .8s .85s forwards}
+.hbtns{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:48px;opacity:0;animation:aUp .8s 1.05s forwards}
+.bpri{padding:14px 38px;background:linear-gradient(135deg,var(--c),#004dff);border:none;border-radius:50px;color:#000;font-weight:800;font-size:.9rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;position:relative;overflow:hidden;box-shadow:0 0 38px rgba(0,212,255,.38);transition:.35s;letter-spacing:.3px}
+.bpri::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);transition:.55s}
+.bpri:hover::before{left:100%}.bpri:hover{transform:translateY(-3px);box-shadow:0 14px 48px rgba(0,212,255,.52)}
+.bsec{padding:14px 38px;background:transparent;border:1px solid rgba(255,255,255,.15);border-radius:50px;color:rgba(255,255,255,.8);font-weight:600;font-size:.9rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;backdrop-filter:blur(8px);transition:.35s}
+.bsec:hover{border-color:var(--c);background:rgba(0,212,255,.06);transform:translateY(-3px);color:var(--c)}
+.hstats{display:flex;align-items:center;gap:0;opacity:0;animation:aUp .8s 1.3s forwards;border:1px solid var(--border);border-radius:16px;background:var(--glass);backdrop-filter:blur(10px);overflow:hidden}
+.hst{padding:16px 28px;text-align:center;position:relative}
+.hst+.hst::before{content:'';position:absolute;left:0;top:25%;height:50%;width:1px;background:rgba(255,255,255,.08)}
+.hst-n{font-family:'Inter',sans-serif;font-size:1.45rem;font-weight:900;line-height:1;color:var(--c)}
+.hst:nth-child(2) .hst-n{color:var(--m)}.hst:nth-child(3) .hst-n{color:var(--y)}
+.hst-l{font-size:.65rem;color:rgba(255,255,255,.38);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+.scue{position:absolute;bottom:32px;left:25%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:7px;color:rgba(255,255,255,.25);font-size:.62rem;letter-spacing:3px;text-transform:uppercase}
+.sline{width:1px;height:42px;background:linear-gradient(to bottom,var(--c),transparent);animation:sl 2.2s ease-in-out infinite}
+@keyframes sl{0%,100%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
+@keyframes aUp{to{opacity:1;transform:none}}
+
+/* ══ STATS ══ */
+#stats{padding:80px 64px;background:var(--dark2);position:relative;overflow:hidden}
+#stats::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--c),var(--m),transparent)}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.sc2{padding:38px 20px;background:var(--glass);border:1px solid var(--border);border-radius:20px;text-align:center;position:relative;overflow:hidden;transition:.45s cubic-bezier(.175,.885,.32,1.275);transform:translateY(26px);opacity:0}
+.sc2.vis{opacity:1;transform:translateY(0)}
+.sc2::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.sc2:nth-child(1)::before{background:var(--c)}.sc2:nth-child(2)::before{background:var(--m)}
+.sc2:nth-child(3)::before{background:var(--y)}.sc2:nth-child(4)::before{background:var(--g)}
+.sc2:hover{transform:translateY(-12px)!important;background:rgba(255,255,255,.05);box-shadow:0 24px 48px rgba(0,0,0,.4)}
+.snum{font-family:'Inter',sans-serif;font-size:2.9rem;font-weight:900;line-height:1;margin-bottom:9px;color:var(--c)}
+.sc2:nth-child(2) .snum{color:var(--m)}.sc2:nth-child(3) .snum{color:var(--y)}.sc2:nth-child(4) .snum{color:var(--g)}
+.slbl{color:rgba(255,255,255,.42);font-size:.82rem;letter-spacing:.5px}
+
+/* ══ COMMONS ══ */
+.stag{display:inline-flex;align-items:center;gap:10px;color:var(--c);font-size:.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.stag::before{content:'';width:24px;height:1px;background:var(--c)}
+.stit{font-family:'Inter',sans-serif;font-size:clamp(1.9rem,4.5vw,3.3rem);font-weight:900;line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px}
+.gc{background:linear-gradient(135deg,var(--c),var(--m));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.gc2{background:linear-gradient(135deg,var(--y),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.gc3{background:linear-gradient(135deg,var(--m),var(--y));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.gc4{background:linear-gradient(135deg,var(--c),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ══ ABOUT ══ */
+#about{padding:118px 64px;background:var(--dark);position:relative;overflow:hidden}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center;max-width:1200px;margin:0 auto}
+.atxt p{color:rgba(255,255,255,.5);line-height:1.86;font-size:.95rem;margin-bottom:20px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:28px}
+.fi{display:flex;align-items:center;gap:9px;font-size:.86rem;color:rgba(255,255,255,.7)}
+.fd{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.avis{position:relative;height:420px}
+.c3d{width:100%;height:100%;background:linear-gradient(135deg,rgba(0,212,255,.07),rgba(255,0,102,.05));border:1px solid rgba(0,212,255,.15);border-radius:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;transition:.5s}
+.c3d::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,212,255,.1),transparent 60%)}
+.byr{font-family:'Inter',sans-serif;font-size:7rem;font-weight:900;background:linear-gradient(135deg,var(--c),var(--m));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.yrs{color:rgba(255,255,255,.32);font-size:.72rem;letter-spacing:4px;text-transform:uppercase;margin-top:10px}
+.fcs{position:absolute;inset:0;pointer-events:none}
+.fc{position:absolute;padding:7px 14px;background:rgba(3,3,9,.92);border-radius:11px;font-size:.74rem;font-weight:600;backdrop-filter:blur(14px)}
+.fc1{top:10%;left:-20px;color:var(--c);border:1px solid rgba(0,212,255,.26);animation:fy 3.2s ease-in-out infinite}
+.fc2{top:44%;right:-20px;color:var(--m);border:1px solid rgba(255,0,102,.26);animation:fy 3.2s 1.1s ease-in-out infinite}
+.fc3{bottom:12%;left:10px;color:var(--y);border:1px solid rgba(255,215,0,.26);animation:fy 3.2s 2.2s ease-in-out infinite}
+@keyframes fy{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+
+/* ══ WHY ══ */
+#why{padding:118px 64px;background:var(--dark2);position:relative;overflow:hidden}
+.whdr{text-align:center;margin-bottom:58px;position:relative;z-index:1}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.wc{padding:34px 28px;background:var(--glass);border:1px solid var(--border);border-radius:20px;transition:.4s cubic-bezier(.175,.885,.32,1.275);position:relative;overflow:hidden}
+.wc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--c),var(--m));transform:scaleX(0);transition:.4s;transform-origin:left}
+.wc:hover{transform:translateY(-13px) scale(1.015);border-color:rgba(0,212,255,.15);box-shadow:0 28px 54px rgba(0,0,0,.44),0 0 36px rgba(0,212,255,.06)}
+.wc:hover::after{transform:scaleX(1)}
+.wi{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px}
+.i1{background:rgba(0,212,255,.1)}.i2{background:rgba(255,0,102,.1)}.i3{background:rgba(255,215,0,.1)}.i4{background:rgba(0,255,136,.1)}.i5{background:rgba(0,212,255,.1)}.i6{background:rgba(255,0,102,.1)}
+.wc h3{font-size:1.06rem;font-weight:700;margin-bottom:10px}
+.wc p{color:rgba(255,255,255,.46);font-size:.85rem;line-height:1.76}
+
+/* ══ SERVICES ══ */
+#services{padding:118px 0;background:var(--dark);overflow:hidden;position:relative}
+.shdr{text-align:center;padding:0 64px;margin-bottom:48px;position:relative;z-index:1}
+.shint{color:rgba(255,255,255,.28);font-size:.8rem;margin-top:10px}
+.strk{display:flex;gap:18px;padding:16px 64px 30px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory;cursor:grab;position:relative;z-index:1}
+.strk:active{cursor:grabbing}.strk::-webkit-scrollbar{display:none}
+.svc{min-width:320px;padding:24px;background:var(--glass);border:1px solid var(--border);border-radius:24px;scroll-snap-align:start;flex-shrink:0;transition:.45s cubic-bezier(.165,.84,.44,1);position:relative;overflow:hidden;display:flex;flex-direction:column}
+.svc-img-wrap{width:100%;height:170px;border-radius:16px;overflow:hidden;position:relative;margin-bottom:20px;border:1px solid rgba(255,255,255,.05)}
+.svc-img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.165,.84,.44,1);cursor:pointer}
+.svc-img-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(7,7,15,0.7) 0%, transparent 100%);transition:.4s;pointer-events:none}
+.svc:hover .svc-img{transform:scale(1.08)}
+.sno{font-family:'Inter',sans-serif;font-size:2.6rem;font-weight:900;color:rgba(0,212,255,.1);line-height:1;margin-bottom:10px;transition:.3s}
+.svc h3{font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#fff}
+.svc p{color:rgba(255,255,255,.44);font-size:.84rem;line-height:1.76;flex-grow:1;margin-bottom:18px}
+.sch{display:inline-block;padding:5px 14px;border:1px solid;border-radius:20px;font-size:.68rem;letter-spacing:.5px;font-weight:600;width:fit-content;transition:.3s}
+
+/* CMYK alternating glow styles for services */
+.svc:nth-child(4n+1):hover{border-color:var(--c);box-shadow:0 20px 40px rgba(0,212,255,.12);background:rgba(0,212,255,.01)}
+.svc:nth-child(4n+1):hover .svc-img-overlay{background:linear-gradient(to top, rgba(0,212,255,0.45) 0%, transparent 80%)}
+.svc:nth-child(4n+1) .sch{color:var(--c);border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.05)}
+
+.svc:nth-child(4n+2):hover{border-color:var(--m);box-shadow:0 20px 40px rgba(255,0,102,.12);background:rgba(255,0,102,.01)}
+.svc:nth-child(4n+2):hover .svc-img-overlay{background:linear-gradient(to top, rgba(255,0,102,0.45) 0%, transparent 80%)}
+.svc:nth-child(4n+2) .sch{color:var(--m);border-color:rgba(255,0,102,.2);background:rgba(255,0,102,.05)}
+.svc:nth-child(4n+2) .sno{color:rgba(255,0,102,.1)}
+
+.svc:nth-child(4n+3):hover{border-color:var(--y);box-shadow:0 20px 40px rgba(255,215,0,.12);background:rgba(255,215,0,.01)}
+.svc:nth-child(4n+3):hover .svc-img-overlay{background:linear-gradient(to top, rgba(255,215,0,0.45) 0%, transparent 80%)}
+.svc:nth-child(4n+3) .sch{color:var(--y);border-color:rgba(255,215,0,.2);background:rgba(255,215,0,.05)}
+.svc:nth-child(4n+3) .sno{color:rgba(255,215,0,.1)}
+
+.svc:nth-child(4n+4):hover{border-color:var(--g);box-shadow:0 20px 40px rgba(0,255,136,.12);background:rgba(0,255,136,.01)}
+.svc:nth-child(4n+4):hover .svc-img-overlay{background:linear-gradient(to top, rgba(0,255,136,0.45) 0%, transparent 80%)}
+.svc:nth-child(4n+4) .sch{color:var(--g);border-color:rgba(0,255,136,.2);background:rgba(0,255,136,.05)}
+.svc:nth-child(4n+4) .sno{color:rgba(0,255,136,.1)}
+
+/* About 3D Collage styles */
+.about-collage{position:absolute;inset:0;pointer-events:none;z-index:0}
+.ac-card{position:absolute;width:170px;height:120px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 15px 35px rgba(0,0,0,.6);transition:.5s ease-in-out;opacity:.45}
+.ac-card img{width:100%;height:100%;object-fit:cover}
+.ac-card-1{top:-30px;right:-20px;transform:rotate(6deg) translateZ(-50px);animation:acFloat1 5s ease-in-out infinite}
+.ac-card-2{bottom:-20px;left:-35px;transform:rotate(-8deg) translateZ(-80px);animation:acFloat2 5.5s ease-in-out infinite;width:190px;height:135px}
+@keyframes acFloat1{0%,100%{transform:rotate(6deg) translateY(0)}50%{transform:rotate(4deg) translateY(-8px)}}
+@keyframes acFloat2{0%,100%{transform:rotate(-8deg) translateY(0)}50%{transform:rotate(-6deg) translateY(8px)}}
+
+/* ══ GALLERY SECTION ══ */
+#gallery{padding:118px 64px;background:var(--dark);position:relative;overflow:hidden}
+.g-container{display:grid;grid-template-columns:320px 1fr;gap:48px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.g-tabs{display:flex;flex-direction:column;gap:10px}
+.g-tab{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--glass);border:1px solid var(--border);border-radius:16px;cursor:pointer;transition:.35s cubic-bezier(.165,.84,.44,1);text-align:left}
+.g-tab:hover{border-color:rgba(0,212,255,.3);background:rgba(255,255,255,.05);transform:translateX(5px)}
+.g-tab.active{background:linear-gradient(135deg,rgba(0,212,255,.1),rgba(255,0,102,.05));border-color:var(--c);box-shadow:0 0 24px rgba(0,212,255,.15);transform:translateX(8px)}
+.g-tab-thumb{width:48px;height:48px;border-radius:10px;object-fit:cover;border:1px solid rgba(255,255,255,.1);transition:.3s}
+.g-tab.active .g-tab-thumb{border-color:var(--c)}
+.g-tab-info{display:flex;flex-direction:column}
+.g-tab-name{font-size:.92rem;font-weight:700;color:#fff}
+.g-tab-desc{font-size:.72rem;color:rgba(255,255,255,.38);margin-top:2px}
+
+.g-showcase{position:relative;border-radius:24px;border:1px solid var(--border);background:var(--dark2);overflow:hidden;min-height:540px;display:flex;flex-direction:column;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.g-view{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .5s ease, transform .5s ease;transform:scale(1.015);display:flex;flex-direction:column}
+.g-view.active{opacity:1;pointer-events:all;transform:scale(1);position:relative}
+.g-img-container{position:relative;width:100%;height:320px;overflow:hidden;border-bottom:1px solid var(--border)}
+.g-main-img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;transition:transform .8s ease}
+.g-main-img:hover{transform:scale(1.03)}
+.g-img-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(7,7,15,0.7) 0%, transparent 70%);pointer-events:none}
+
+/* Interactive hotspots on the showcase image */
+.hotspot{position:absolute;width:24px;height:24px;background:rgba(255,255,255,.2);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s;z-index:3}
+.hotspot::before{content:'';position:absolute;inset:-6px;border:1.5px solid var(--c);border-radius:50%;animation:hp-pulse 2s infinite}
+.hotspot::after{content:'';width:8px;height:8px;background:#fff;border-radius:50%}
+.hotspot:hover{background:var(--c);transform:scale(1.15)}
+.hotspot:hover .hotspot-tooltip{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.hotspot-tooltip{position:absolute;bottom:32px;left:50%;transform:translateX(-50%) translateY(10px);background:rgba(7,7,15,.95);border:1px solid var(--c);padding:8px 14px;border-radius:8px;font-size:.74rem;color:#fff;white-space:nowrap;pointer-events:none;opacity:0;visibility:hidden;transition:.3s;backdrop-filter:blur(10px);box-shadow:0 10px 25px rgba(0,0,0,.5)}
+@keyframes hp-pulse{0%{transform:scale(0.8);opacity:1}100%{transform:scale(1.8);opacity:0}}
+
+.g-details{padding:28px 34px;background:var(--dark2);flex-grow:1;display:flex;flex-direction:column;justify-content:center}
+.g-title{font-family:'Inter',sans-serif;font-size:1.6rem;font-weight:900;background:linear-gradient(135deg,var(--c),var(--m));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.g-spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:20px;border-top:1px solid rgba(255,255,255,.05);padding-top:20px}
+.g-spec-item{display:flex;flex-direction:column;gap:4px}
+.g-spec-lbl{font-size:.65rem;color:rgba(255,255,255,.32);text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.g-spec-val{font-size:.86rem;font-weight:600;color:rgba(255,255,255,.88)}
+
+/* ══ LIGHTBOX SYSTEM ══ */
+.lightbox{position:fixed;inset:0;background:rgba(3,3,9,.96);backdrop-filter:blur(24px);z-index:99999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s cubic-bezier(.165,.84,.44,1)}
+.lightbox.active{opacity:1;pointer-events:all}
+.lightbox-content{position:relative;width:90%;max-width:1000px;display:flex;flex-direction:column;align-items:center}
+.lightbox-img{max-width:100%;max-height:80vh;border-radius:20px;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 70px rgba(0,0,0,.85);object-fit:contain}
+.lightbox-caption{margin-top:18px;color:#fff;font-size:1.2rem;font-weight:700;font-family:'Space Grotesk',sans-serif;letter-spacing:.5px}
+.lightbox-close{position:absolute;top:-54px;right:0;width:40px;height:40px;background:var(--glass);border:1px solid var(--border);border-radius:50%;color:#fff;font-size:1.6rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.3s}
+.lightbox-close:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:rotate(90deg)}
+
+/* ══ PRESENCE ══ */
+#presence{padding:118px 64px;background:var(--dark2);overflow:hidden;position:relative}
+.phdr{text-align:center;margin-bottom:65px;position:relative;z-index:1}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+#map-cv{width:100%;max-width:520px;border-radius:16px;display:block;cursor:default}
+.clist{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ci{padding:16px 17px;background:var(--glass);border:1px solid var(--border);border-radius:14px;transition:.3s;cursor:default}
+.ci:hover{border-color:var(--c);background:rgba(0,212,255,.04);transform:translateX(5px)}
+.cyr{font-size:.67rem;color:var(--c);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.cn{font-size:.98rem;font-weight:700}
+.cif{grid-column:1/-1;background:rgba(0,212,255,.03);border-color:rgba(0,212,255,.12);padding:18px}
+.cif .cn{font-size:.85rem;color:rgba(255,255,255,.5);font-weight:400;margin-top:3px}
+
+/* ══ CLIENTS ══ */
+#clients{padding:86px 0;background:var(--dark);overflow:hidden;position:relative}
+.clhdr{text-align:center;padding:0 64px;margin-bottom:50px;position:relative;z-index:1}
+.mqw{position:relative;overflow:hidden;z-index:1}
+.mqw::before,.mqw::after{content:'';position:absolute;top:0;bottom:0;width:150px;z-index:2;pointer-events:none}
+.mqw::before{left:0;background:linear-gradient(to right,var(--dark),transparent)}
+.mqw::after{right:0;background:linear-gradient(to left,var(--dark),transparent)}
+.mqt{display:flex;gap:13px;width:max-content;animation:mqs 38s linear infinite;padding:7px 0}
+.mqt:hover{animation-play-state:paused}
+@keyframes mqs{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.cc{padding:12px 22px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:50px;white-space:nowrap;font-size:.84rem;font-weight:600;color:rgba(255,255,255,.6);transition:.3s;cursor:default}
+.cc:hover{background:rgba(0,212,255,.07);border-color:rgba(0,212,255,.24);color:var(--c)}
+
+/* ══ CTA ══ */
+#cta{padding:128px 64px;position:relative;text-align:center;overflow:hidden}
+.ctin{position:relative;z-index:1}
+.ctin h2{font-family:'Inter',sans-serif;font-size:clamp(2.3rem,5.5vw,4.2rem);font-weight:900;letter-spacing:-2px;margin-bottom:18px;line-height:1.05}
+.ctin p{color:rgba(255,255,255,.5);font-size:1rem;margin-bottom:42px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.74}
+.ctbs{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+.crow{margin-top:54px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cch{display:flex;align-items:center;gap:9px;padding:11px 20px;background:var(--glass);border:1px solid var(--border);border-radius:50px;font-size:.84rem;color:rgba(255,255,255,.58);backdrop-filter:blur(12px)}
+.cch b{color:var(--c)}
+
+/* ══ FOOTER ══ */
+footer{padding:34px 64px;background:var(--dark2);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer p{color:rgba(255,255,255,.28);font-size:.78rem}
+.fcit{display:flex;gap:13px;flex-wrap:wrap;align-items:center}
+.fcit span{color:rgba(255,255,255,.2);font-size:.7rem;letter-spacing:1.5px}
+.fsep{color:rgba(0,212,255,.28)!important}
+
+/* ══ REVEAL ══ */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .85s cubic-bezier(.165,.84,.44,1),transform .85s cubic-bezier(.165,.84,.44,1)}
+.rv-l{opacity:0;transform:translateX(-30px);transition:opacity .85s cubic-bezier(.165,.84,.44,1),transform .85s cubic-bezier(.165,.84,.44,1)}
+.rv-r{opacity:0;transform:translateX(30px);transition:opacity .85s cubic-bezier(.165,.84,.44,1),transform .85s cubic-bezier(.165,.84,.44,1)}
+.rv.on,.rv-l.on,.rv-r.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:920px){
+  nav{padding:13px 20px}nav.sc{padding:11px 20px}.nlinks,.ncta{display:none}
+  .hero-grid{grid-template-columns:1fr;min-height:unset;padding:0 20px}
+  .hero-left-text{order:1;padding-right:0;padding-top:100px;padding-bottom:32px;align-items:center;text-align:center}
+  .hero-right-vis{order:2;min-height:340px}
+  .htitle .r1,.htitle .r2{font-size:clamp(2.4rem,10vw,4.2rem)}
+  .hbtns{justify-content:center}
+  #stats{padding:50px 20px}.sgrid{grid-template-columns:1fr 1fr;gap:14px}
+  #about,#why,#presence,#cta,#gallery{padding:80px 20px}
+  .agrid,.pgrid{grid-template-columns:1fr;gap:38px}
+  .wgrid{grid-template-columns:1fr}
+  .strk,.shdr,.clhdr{padding-left:20px;padding-right:20px}
+  footer{padding:24px 20px;flex-direction:column;align-items:flex-start}
+  
+  /* Services mobile adjustments */
+  .svc{min-width:280px;padding:20px}
+  .svc-img-wrap{height:150px}
+  
+  /* Gallery mobile adjustments */
+  .g-container{grid-template-columns:1fr;gap:24px}
+  .g-tabs{flex-direction:row;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}
+  .g-tabs::-webkit-scrollbar{display:none}
+  .g-tab{flex-shrink:0;padding:10px 14px;min-width:185px;transform:none!important}
+  .g-showcase{min-height:unset}
+  .g-img-container{height:220px}
+  .g-details{padding:20px}
+  .g-spec-grid{grid-template-columns:1fr;gap:12px;margin-top:16px;padding-top:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nlogo">KANIKA ◆ DIGITAL</div>
+  <ul class="nlinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Showcase</a></li>
+    <li><a href="#presence">Presence</a></li>
+    <li><a href="#clients">Clients</a></li>
+  </ul>
+  <a href="mailto:kanikadigital@gmail.com" class="ncta">Get Quote ↗</a>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section id="hero">
+  <!-- full-section 3D canvas — one unified background -->
+  <canvas id="hero-cv"></canvas>
+
+  <div class="hero-grid">
+    <!-- LEFT: text -->
+    <div class="hero-left-text">
+      <div class="hbadge"><span class="hdot"></span>India's #1 Large Format Printer</div>
+      <h1 class="htitle">
+        <span class="row r1" id="row1">Printing India's</span>
+        <span class="row r2" id="row2">Biggest Stories</span>
+      </h1>
+      <p class="hsub">Large format digital printing across 6 strategic cities. From metro trains & bus wraps to fabric walls & hoardings — we print what others can't, at scale.</p>
+      <div class="hbtns">
+        <a href="mailto:kanikadigital@gmail.com" class="bpri">Start Your Project ↗</a>
+        <a href="#services" class="bsec">Explore Services →</a>
+      </div>
+      <div class="hstats">
+        <div class="hst"><div class="hst-n">19+</div><div class="hst-l">Years Est.</div></div>
+        <div class="hst"><div class="hst-n">6</div><div class="hst-l">Cities</div></div>
+        <div class="hst"><div class="hst-n">1L</div><div class="hst-l">sqft / Unit</div></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: floating CMYK labels (sphere draws itself behind via canvas) -->
+    <div class="hero-right-vis">
+      <div class="cv-labels">
+        <div class="cvl cvl-c">Cyan</div>
+        <div class="cvl cvl-m">Magenta</div>
+        <div class="cvl cvl-y">Yellow</div>
+        <div class="cvl cvl-k">Black</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scue"><div class="sline"></div><span>Scroll</span></div>
+</section>
+
+<!-- ═══════ STATS — BG: CMYK ink-dot matrix ═══════ -->
+<section id="stats">
+  <canvas class="bg-cv" id="stats-bg"></canvas>
+  <div class="sgrid">
+    <div class="sc2 d1"><div class="snum" data-to="2006">0</div><div class="slbl">Founded — Indore</div></div>
+    <div class="sc2 d2"><div class="snum" data-to="6" data-sfx=" Cities">0</div><div class="slbl">Pan India Presence</div></div>
+    <div class="sc2 d3"><div class="snum" data-to="1" data-sfx=" Lakh sqft">0</div><div class="slbl">Capacity Per Unit</div></div>
+    <div class="sc2 d4"><div class="snum" data-to="24" data-sfx="+ Brands">0</div><div class="slbl">Premium Client Partners</div></div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT — BG: radial ink wave pulses ═══════ -->
+<section id="about">
+  <canvas class="bg-cv" id="about-bg"></canvas>
+  <div class="agrid sec-inner">
+    <div class="atxt rv-l">
+      <div class="stag">Our Story</div>
+      <h2 class="stit">19 Years of<br><span class="gc">Printing Excellence</span></h2>
+      <p>Founded in 2006 as Kanika Digital Prints Pvt. Ltd. in Indore, we have grown into one of India's most sophisticated large format digital printing companies — now Kanika Digital Prints & Solutions LLP.</p>
+      <p>We are <strong style="color:#fff">the only digital printer for 100×100 sqft fabric printing</strong> in India. 6 strategic units and industry-best UV machines — all-India campaigns from one platform.</p>
+      <div class="fgrid">
+        <div class="fi"><div class="fd" style="background:var(--c)"></div>Metro Station Branding</div>
+        <div class="fi"><div class="fd" style="background:var(--m)"></div>Bus & Train Wraps</div>
+        <div class="fi"><div class="fd" style="background:var(--y)"></div>Fabric 100×100 sqft</div>
+        <div class="fi"><div class="fd" style="background:var(--g)"></div>Outdoor Hoardings</div>
+        <div class="fi"><div class="fd" style="background:var(--c)"></div>In-house Fabrication</div>
+        <div class="fi"><div class="fd" style="background:var(--m)"></div>PAN India Campaigns</div>
+      </div>
+    </div>
+    <div class="avis rv-r">
+      <div class="about-collage">
+        <div class="ac-card ac-card-1"><img src="assets/fabric_printing.png" alt="Fabric Printing Installation"></div>
+        <div class="ac-card ac-card-2"><img src="assets/outdoor_hoardings.png" alt="Outdoor Hoardings Installation"></div>
+      </div>
+      <div class="c3d" id="c3d">
+        <div class="byr">19</div>
+        <div class="yrs">Years of Excellence</div>
+      </div>
+      <div class="fcs">
+        <div class="fc fc1">🖨️ UV Printing</div>
+        <div class="fc fc2">📐 100×100 sqft</div>
+        <div class="fc fc3">⭐ 3 Yr Warranty</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHY — BG: 3D hex network grid ═══════ -->
+<section id="why">
+  <canvas class="bg-cv" id="why-bg"></canvas>
+  <div class="whdr">
+    <div class="stag" style="justify-content:center">Why Choose Us</div>
+    <h2 class="stit rv">What Makes Us<br><span class="gc">Truly Different</span></h2>
+  </div>
+  <div class="wgrid">
+    <div class="wc rv d1"><div class="wi i1">🗺️</div><h3>Multi-Location Network</h3><p>6 fully operational units in Mumbai, Bangalore, Hyderabad, Lucknow, Kolkata & Indore — best in India for unit count and total printing capacity.</p></div>
+    <div class="wc rv d2"><div class="wi i2">🏭</div><h3>Massive Print Capacity</h3><p>Each unit has 1 Lakh sqft printing capacity with seaming. Execute simultaneous all-India campaigns at a scale no competitor can match.</p></div>
+    <div class="wc rv d3"><div class="wi i3">🧵</div><h3>Fabric Printing Pioneers</h3><p>India's only digital printer for 100×100 sqft fabric printing. Bangalore unit alone offers 50,000 sqft cotton & fabric printing with seaming.</p></div>
+    <div class="wc rv d4"><div class="wi i4">⚙️</div><h3>In-House Finishing</h3><p>Complete in-house lamination, mounting, profile cutting, laser, router and fabrication — full end-to-end workflow under one roof.</p></div>
+    <div class="wc rv d5"><div class="wi i5">✨</div><h3>Crystal Clear Quality</h3><p>Industry-best machines with water-cooling UV platform — zero deformation, crystal prints, 3-year printing warranty on all UV jobs.</p></div>
+    <div class="wc rv d6"><div class="wi i6">🚌</div><h3>Transit Branding Experts</h3><p>Official printers for Mumbai BEST buses, Bangalore BMTC, Maha Metro Nagpur & Pune trains, metro station branding across multiple cities.</p></div>
+  </div>
+</section>
+
+<!-- ═══════ SERVICES — BG: printer scan beam ═══════ -->
+<section id="services">
+  <canvas class="bg-cv" id="services-bg"></canvas>
+  <div class="shdr">
+    <div class="stag" style="justify-content:center">Our Services</div>
+    <h2 class="stit rv">What We Create<br><span class="gc2">For You</span></h2>
+    <p class="shint">← Drag to explore all services →</p>
+  </div>
+  <div class="strk" id="strk">
+    <!-- Card 1 -->
+    <div class="svc">
+      <div class="svc-img-wrap">
+        <img src="assets/transit_branding.png" alt="Transit Branding - BEST Bus wraps" class="svc-img" loading="lazy">
+        <div class="svc-img-overlay"></div>
+      </div>
+      <div class="sno">01</div>
+      <h3>Transit Branding</h3>
+      <p>Bus wraps, metro train branding, station branding — Mumbai BEST, Bangalore BMTC, Maha Metro Nagpur & Pune trains.</p>
+      <span class="sch">Bus · Metro · Train</span>
+    </div>
+    
+    <!-- Card 2 -->
+    <div class="svc">
+      <div class="svc-img-wrap">
+        <img src="assets/outdoor_hoardings.png" alt="Outdoor Hoardings - Billboard installation" class="svc-img" loading="lazy">
+        <div class="svc-img-overlay"></div>
+      </div>
+      <div class="sno">02</div>
+      <h3>Outdoor Hoardings</h3>
+      <p>Large format prints for L'Oréal, Jockey, Garnier, Kerastase — brands that demand perfect CMYK colour accuracy.</p>
+      <span class="sch">OOH · Billboard</span>
+    </div>
+    
+    <!-- Card 3 -->
+    <div class="svc">
+      <div class="svc-img-wrap">
+        <img src="assets/fabric_printing.png" alt="Fabric Printing - 100x100 sqft exhibition backdrop" class="svc-img" loading="lazy">
+        <div class="svc-img-overlay"></div>
+      </div>
+      <div class="sno">03</div>
+      <h3>Fabric Printing</h3>
+      <p>200×50 ft and 100×100 sqft fabric with seaming. Cotton, polyester, specialty fabrics — consistent and precise.</p>
+      <span class="sch">100×100 sqft</span>
+    </div>
+    
+    <!-- Card 4 -->
+    <div class="svc">
+      <div class="svc-img-wrap">
+        <img src="assets/retail_signage.png" alt="Retail & POS Signage - ACP Backlit board" class="svc-img" loading="lazy">
+        <div class="svc-img-overlay"></div>
+      </div>
+      <div class="sno">04</div>
+      <h3>Retail & POS</h3>
+      <p>ACP boards, backlit signage, GSB signage, pylons, FSUs, lit danglers — complete point-of-sale solutions at scale.</p>
+      <span class="sch">Retail · Signage</span>
+    </div>
+    
+    <!-- Card 5 -->
+    <div class="svc">
+      <div class="svc-img-wrap">
+        <img src="assets/digital_display.png" alt="Digital Display - HD LED Screen" class="svc-img" loading="lazy">
+        <div class="svc-img-overlay"></div>
+      </div>
+      <div class="sno">05</div>
+      <h3>Digital Display</h3>
+      <p>LED IPS panels, capacitive touch screens, portable desk promotions — cutting-edge digital signage solutions.</p>
+      <span class="sch">LED · Touch Screen</span>
+    </div>
+    
+    <!-- Card 6 -->
+    <div class="svc">
+      <div class="svc-img-wrap">
+        <img src="assets/event_activation.png" alt="Event Activation - 3D Photo Booth backdrop" class="svc-img" loading="lazy">
+        <div class="svc-img-overlay"></div>
+      </div>
+      <div class="sno">06</div>
+      <h3>Event Activation</h3>
+      <p>Photo booths, branded carts, bar counters, lit 3D displays, gate arches — brands come alive at events.</p>
+      <span class="sch">BTL · Activation</span>
+    </div>
+    
+    <!-- Card 7 -->
+    <div class="svc">
+      <div class="svc-img-wrap">
+        <img src="assets/metro_branding.png" alt="Metro Branding - Platform Screen Doors" class="svc-img" loading="lazy">
+        <div class="svc-img-overlay"></div>
+      </div>
+      <div class="sno">07</div>
+      <h3>Metro Branding</h3>
+      <p>PSD metro branding, wall branding, platform screen doors — complete metro station solutions.</p>
+      <span class="sch">Metro · Station</span>
+    </div>
+    
+    <!-- Card 8 -->
+    <div class="svc">
+      <div class="svc-img-wrap">
+        <img src="assets/wall_outdoor.png" alt="Wall & Outdoor - Van Wrap and shelters" class="svc-img" loading="lazy">
+        <div class="svc-img-overlay"></div>
+      </div>
+      <div class="sno">08</div>
+      <h3>Wall & Outdoor</h3>
+      <p>Wall graffiti, van wraps, bus shelters, MUPIs, one-way vision films — outdoor media at scale across India.</p>
+      <span class="sch">Wall · Van Wrap</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ GALLERY (NEW SECTION) ═══════ -->
+<section id="gallery">
+  <canvas class="bg-cv" id="gallery-bg"></canvas>
+  <div class="sec-inner">
+    <div class="whdr" style="margin-bottom: 48px;">
+      <div class="stag" style="justify-content:center">Interactive Showcase</div>
+      <h2 class="stit rv" style="text-align:center;">Precision in<br><span class="gc">Real-World Scale</span></h2>
+    </div>
+    
+    <div class="g-container rv">
+      <!-- Left side: Tabs -->
+      <div class="g-tabs">
+        <div class="g-tab active" data-index="0">
+          <img src="assets/transit_branding.png" class="g-tab-thumb" alt="Transit Branding">
+          <div class="g-tab-info">
+            <span class="g-tab-name">Transit Branding</span>
+            <span class="g-tab-desc">Bus & Train Wraps</span>
+          </div>
+        </div>
+        <div class="g-tab" data-index="1">
+          <img src="assets/outdoor_hoardings.png" class="g-tab-thumb" alt="Outdoor Hoardings">
+          <div class="g-tab-info">
+            <span class="g-tab-name">Outdoor Hoardings</span>
+            <span class="g-tab-desc">High-Impact Billboards</span>
+          </div>
+        </div>
+        <div class="g-tab" data-index="2">
+          <img src="assets/fabric_printing.png" class="g-tab-thumb" alt="Fabric Printing">
+          <div class="g-tab-info">
+            <span class="g-tab-name">Fabric Printing</span>
+            <span class="g-tab-desc">100×100 sqft Giants</span>
+          </div>
+        </div>
+        <div class="g-tab" data-index="3">
+          <img src="assets/retail_signage.png" class="g-tab-thumb" alt="Retail Signage">
+          <div class="g-tab-info">
+            <span class="g-tab-name">Retail & POS</span>
+            <span class="g-tab-desc">Signage & Displays</span>
+          </div>
+        </div>
+        <div class="g-tab" data-index="4">
+          <img src="assets/digital_display.png" class="g-tab-thumb" alt="Digital Display">
+          <div class="g-tab-info">
+            <span class="g-tab-name">Digital Display</span>
+            <span class="g-tab-desc">LED & Touch Screens</span>
+          </div>
+        </div>
+        <div class="g-tab" data-index="5">
+          <img src="assets/event_activation.png" class="g-tab-thumb" alt="Event Activation">
+          <div class="g-tab-info">
+            <span class="g-tab-name">Event Activation</span>
+            <span class="g-tab-desc">BTL & 3D Backdrops</span>
+          </div>
+        </div>
+        <div class="g-tab" data-index="6">
+          <img src="assets/metro_branding.png" class="g-tab-thumb" alt="Metro Branding">
+          <div class="g-tab-info">
+            <span class="g-tab-name">Metro Branding</span>
+            <span class="g-tab-desc">Station Takeovers</span>
+          </div>
+        </div>
+        <div class="g-tab" data-index="7">
+          <img src="assets/wall_outdoor.png" class="g-tab-thumb" alt="Wall & Outdoor">
+          <div class="g-tab-info">
+            <span class="g-tab-name">Wall & Outdoor</span>
+            <span class="g-tab-desc">Van wraps & Shelters</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right side: Cinematic Showcase -->
+      <div class="g-showcase">
+        <!-- Tab 0: Transit -->
+        <div class="g-view active">
+          <div class="g-img-container">
+            <img src="assets/transit_branding.png" alt="Transit Branding - BEST Bus wraps" class="g-main-img">
+            <div class="g-img-overlay"></div>
+            <!-- Hotspots -->
+            <div class="hotspot" style="top: 35%; left: 25%;">
+              <div class="hotspot-tooltip">Vibrant UV inks with 3-year fade resistance</div>
+            </div>
+            <div class="hotspot" style="top: 65%; left: 70%;">
+              <div class="hotspot-tooltip">Conformable vinyl wrapping for perfect rivet adherence</div>
+            </div>
+          </div>
+          <div class="g-details">
+            <div class="g-title">Transit Branding</div>
+            <p style="color:rgba(255,255,255,.5); font-size:.86rem; line-height:1.6; margin-top:6px;">Complete fleet wraps and transit media installations across India's largest public transport networks, including Mumbai BEST buses, BMTC Bangalore, and Maha Metro trains.</p>
+            <div class="g-spec-grid">
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Technology</span>
+                <span class="g-spec-val">UV Curable Inkjet</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Media Type</span>
+                <span class="g-spec-val">Polymeric Conformable Vinyl</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Fleet Scale</span>
+                <span class="g-spec-val">500+ Buses Simultaneously</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tab 1: Outdoor Hoardings -->
+        <div class="g-view">
+          <div class="g-img-container">
+            <img src="assets/outdoor_hoardings.png" alt="Outdoor Hoardings - Billboard installation" class="g-main-img">
+            <div class="g-img-overlay"></div>
+            <div class="hotspot" style="top: 30%; left: 45%;">
+              <div class="hotspot-tooltip">Perfect CMYK calibration for global brand guidelines</div>
+            </div>
+            <div class="hotspot" style="top: 40%; left: 80%;">
+              <div class="hotspot-tooltip">Seamless jointing and high-tensile seaming</div>
+            </div>
+          </div>
+          <div class="g-details">
+            <div class="g-title">Outdoor Hoardings</div>
+            <p style="color:rgba(255,255,255,.5); font-size:.86rem; line-height:1.6; margin-top:6px;">Massive scale billboard and out-of-home advertising displays with flawless color accuracy for premium global brands like L'Oréal, Jockey, Garnier, and Kerastase.</p>
+            <div class="g-spec-grid">
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Technology</span>
+                <span class="g-spec-val">High-Speed UV & Solvent</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Media Type</span>
+                <span class="g-spec-val">Heavy-duty Frontlit / Blockout Flex</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Print Output</span>
+                <span class="g-spec-val">1440 DPI High-Fidelity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tab 2: Fabric Printing -->
+        <div class="g-view">
+          <div class="g-img-container">
+            <img src="assets/fabric_printing.png" alt="Fabric Printing - 100x100 sqft exhibition backdrop" class="g-main-img">
+            <div class="g-img-overlay"></div>
+            <div class="hotspot" style="top: 50%; left: 30%;">
+              <div class="hotspot-tooltip">Tension fabric with zero creases or distortion</div>
+            </div>
+            <div class="hotspot" style="top: 45%; left: 65%;">
+              <div class="hotspot-tooltip">Saturated, eco-friendly dye-sublimation inks</div>
+            </div>
+          </div>
+          <div class="g-details">
+            <div class="g-title">Fabric Printing</div>
+            <p style="color:rgba(255,255,255,.5); font-size:.86rem; line-height:1.6; margin-top:6px;">India's only digital printing setup capable of executing seamless 100×100 sqft fabric installations for exhibition walls, premium lightboxes, and backdrops.</p>
+            <div class="g-spec-grid">
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Technology</span>
+                <span class="g-spec-val">5-Meter Dye Sublimation</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Media Type</span>
+                <span class="g-spec-val">Polyester Tension / Organic Cotton</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Seamless Max</span>
+                <span class="g-spec-val">100 × 100 ft With Seaming</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tab 3: Retail & POS -->
+        <div class="g-view">
+          <div class="g-img-container">
+            <img src="assets/retail_signage.png" alt="Retail & POS Signage - ACP Backlit board" class="g-main-img">
+            <div class="g-img-overlay"></div>
+            <div class="hotspot" style="top: 25%; left: 50%;">
+              <div class="hotspot-tooltip">CNC router profile cut acrylic letters</div>
+            </div>
+            <div class="hotspot" style="top: 60%; left: 75%;">
+              <div class="hotspot-tooltip">Ultra-bright, uniform LED backlighting</div>
+            </div>
+          </div>
+          <div class="g-details">
+            <div class="g-title">Retail & POS Solutions</div>
+            <p style="color:rgba(255,255,255,.5); font-size:.86rem; line-height:1.6; margin-top:6px;">End-to-end retail branding, including ACP boards, premium backlit signage, point-of-sale displays, pylons, and custom in-store fabrication.</p>
+            <div class="g-spec-grid">
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Technology</span>
+                <span class="g-spec-val">Flatbed UV & CNC Routing</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Media Type</span>
+                <span class="g-spec-val">ACP, Acrylic, MDF & Polycarbonate</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Finishing</span>
+                <span class="g-spec-val">In-house Profile Cut & Laser</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tab 4: Digital Display -->
+        <div class="g-view">
+          <div class="g-img-container">
+            <img src="assets/digital_display.png" alt="Digital Display - HD LED Screen" class="g-main-img">
+            <div class="g-img-overlay"></div>
+            <div class="hotspot" style="top: 40%; left: 40%;">
+              <div class="hotspot-tooltip">Ultra-thin bezel fine-pitch LED display panel</div>
+            </div>
+            <div class="hotspot" style="top: 70%; left: 60%;">
+              <div class="hotspot-tooltip">Interactive touch surface with anti-glare coat</div>
+            </div>
+          </div>
+          <div class="g-details">
+            <div class="g-title">Digital Displays</div>
+            <p style="color:rgba(255,255,255,.5); font-size:.86rem; line-height:1.6; margin-top:6px;">Modern digital signage solutions integrating high-definition LED IPS panels, interactive touch screens, and portable desk displays for active campaigns.</p>
+            <div class="g-spec-grid">
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Technology</span>
+                <span class="g-spec-val">P2.5/P3 LED & IPS Panels</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Cabinet</span>
+                <span class="g-spec-val">Slim Die-Cast Aluminum</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Controller</span>
+                <span class="g-spec-val">Cloud-Sync Content Management</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tab 5: Event Activation -->
+        <div class="g-view">
+          <div class="g-img-container">
+            <img src="assets/event_activation.png" alt="Event Activation - 3D Photo Booth backdrop" class="g-main-img">
+            <div class="g-img-overlay"></div>
+            <div class="hotspot" style="top: 55%; left: 35%;">
+              <div class="hotspot-tooltip">Custom fabricated 3D arches and letters</div>
+            </div>
+            <div class="hotspot" style="top: 35%; left: 75%;">
+              <div class="hotspot-tooltip">High-resolution mounted graphics with matte lamination</div>
+            </div>
+          </div>
+          <div class="g-details">
+            <div class="g-title">Event Activation</div>
+            <p style="color:rgba(255,255,255,.5); font-size:.86rem; line-height:1.6; margin-top:6px;">Immersive brand experiences featuring interactive photo booths, branded carts, bar counters, lit 3D displays, and structural gate arches.</p>
+            <div class="g-spec-grid">
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Technology</span>
+                <span class="g-spec-val">Vinyl Mounting & 3D Fabrication</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Structural</span>
+                <span class="g-spec-val">MS / Wood Frame with Lacquer Finish</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Turnaround</span>
+                <span class="g-spec-val">Rapid 24-Hour Setup & Build</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tab 6: Metro Branding -->
+        <div class="g-view">
+          <div class="g-img-container">
+            <img src="assets/metro_branding.png" alt="Metro Branding - Platform Screen Doors" class="g-main-img">
+            <div class="g-img-overlay"></div>
+            <div class="hotspot" style="top: 45%; left: 50%;">
+              <div class="hotspot-tooltip">Platform Screen Door (PSD) precision vinyl wraps</div>
+            </div>
+            <div class="hotspot" style="top: 30%; left: 80%;">
+              <div class="hotspot-tooltip">Anti-scratch, fire-rated protective laminate</div>
+            </div>
+          </div>
+          <div class="g-details">
+            <div class="g-title">Metro Station Branding</div>
+            <p style="color:rgba(255,255,255,.5); font-size:.86rem; line-height:1.6; margin-top:6px;">Comprehensive metro station media, platform screen door wraps, station pillars, stairways, and full-station takeover print displays.</p>
+            <div class="g-spec-grid">
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Technology</span>
+                <span class="g-spec-val">Class-A Fire-Rated UV Print</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Media Type</span>
+                <span class="g-spec-val">Fire-Retardant Anti-Graffiti Film</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Compliance</span>
+                <span class="g-spec-val">DMRC & local Metro Standards</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tab 7: Wall & Outdoor -->
+        <div class="g-view">
+          <div class="g-img-container">
+            <img src="assets/wall_outdoor.png" alt="Wall & Outdoor - Van Wrap and shelters" class="g-main-img">
+            <div class="g-img-overlay"></div>
+            <div class="hotspot" style="top: 60%; left: 30%;">
+              <div class="hotspot-tooltip">Perforated one-way vision film for glass windows</div>
+            </div>
+            <div class="hotspot" style="top: 40%; left: 70%;">
+              <div class="hotspot-tooltip">Weatherproof cast vinyl for rough brick walls</div>
+            </div>
+          </div>
+          <div class="g-details">
+            <div class="g-title">Wall & Outdoor Media</div>
+            <p style="color:rgba(255,255,255,.5); font-size:.86rem; line-height:1.6; margin-top:6px;">High-impact outdoor campaigns including large scale wall murals/graffiti, van wraps, bus shelters, MUPIs, and one-way vision perforated window films.</p>
+            <div class="g-spec-grid">
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Technology</span>
+                <span class="g-spec-val">Outdoor Latex & Eco-Solvent</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Media Type</span>
+                <span class="g-spec-val">Cast Wrap & Perforated Mesh</span>
+              </div>
+              <div class="g-spec-item">
+                <span class="g-spec-lbl">Durability</span>
+                <span class="g-spec-val">Weatherproof UV Coat (5 Yr Life)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX FOR INTERACTIVE IMAGE VIEWING -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <div class="lightbox-close" id="lightbox-close">×</div>
+    <img src="" alt="Zoomed View" class="lightbox-img" id="lightbox-img">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+
+<!-- ═══════ PRESENCE — BG: floating network particles ═══════ -->
+<section id="presence">
+  <canvas class="bg-cv" id="presence-bg"></canvas>
+  <div class="phdr">
+    <div class="stag" style="justify-content:center">Our Presence</div>
+    <h2 class="stit rv">6 Cities.<br><span class="gc4">100% India Coverage</span></h2>
+  </div>
+  <div class="pgrid">
+    <div class="rv-l"><canvas id="map-cv" width="520" height="590"></canvas></div>
+    <div class="rv-r">
+      <div class="clist">
+        <div class="ci"><div class="cyr">Since 2006 · First Unit</div><div class="cn">📍 Indore</div></div>
+        <div class="ci"><div class="cyr">Since 2009</div><div class="cn">📍 Mumbai</div></div>
+        <div class="ci"><div class="cyr">Since 2018</div><div class="cn">📍 Bangalore</div></div>
+        <div class="ci"><div class="cyr">Since 2021</div><div class="cn">📍 Lucknow</div></div>
+        <div class="ci"><div class="cyr">Since 2023</div><div class="cn">📍 Kolkata</div></div>
+        <div class="ci" style="border-color:rgba(255,0,102,.2);background:rgba(255,0,102,.03)"><div class="cyr" style="color:var(--m)">Since 2025 · Newest</div><div class="cn">📍 Hyderabad</div></div>
+        <div class="ci cif"><div class="cyr">Coverage</div><div class="cn">100% spectrum of indoor & outdoor digital printing across India — 1 Lakh sqft capacity per unit</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CLIENTS — BG: orbiting brand rings ═══════ -->
+<section id="clients">
+  <canvas class="bg-cv" id="clients-bg"></canvas>
+  <div class="clhdr">
+    <div class="stag" style="justify-content:center">Our Clientele</div>
+    <h2 class="stit rv">Trusted by<br><span class="gc3">India's Best Brands</span></h2>
+  </div>
+  <div class="mqw">
+    <div class="mqt">
+      <div class="cc">Signpost India</div><div class="cc">Laqshya Media Group</div><div class="cc">Posterscope</div><div class="cc">Coral Media</div><div class="cc">Madison Out of Home</div><div class="cc">Kinetic</div><div class="cc">OAP</div><div class="cc">Jagran</div><div class="cc">Rapport</div><div class="cc">Reliance Digital</div><div class="cc">Airtel</div><div class="cc">Jockey</div><div class="cc">Dollar</div><div class="cc">Dentsu</div><div class="cc">Tanishq (Tata)</div><div class="cc">Vi Vodafone Idea</div><div class="cc">Zee TV</div><div class="cc">Walk the Talk</div><div class="cc">The Times Group</div><div class="cc">Hindustan Unilever</div><div class="cc">Haystack</div><div class="cc">Say it Loud Media</div><div class="cc">Spectrum Mediacom</div><div class="cc">MP Madhyam</div>
+      <div class="cc">Signpost India</div><div class="cc">Laqshya Media Group</div><div class="cc">Posterscope</div><div class="cc">Coral Media</div><div class="cc">Madison Out of Home</div><div class="cc">Kinetic</div><div class="cc">OAP</div><div class="cc">Jagran</div><div class="cc">Rapport</div><div class="cc">Reliance Digital</div><div class="cc">Airtel</div><div class="cc">Jockey</div><div class="cc">Dollar</div><div class="cc">Dentsu</div><div class="cc">Tanishq (Tata)</div><div class="cc">Vi Vodafone Idea</div><div class="cc">Zee TV</div><div class="cc">Walk the Talk</div><div class="cc">The Times Group</div><div class="cc">Hindustan Unilever</div><div class="cc">Haystack</div><div class="cc">Say it Loud Media</div><div class="cc">Spectrum Mediacom</div><div class="cc">MP Madhyam</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA — BG: CMYK ink explosion ═══════ -->
+<section id="cta">
+  <canvas class="bg-cv" id="cta-bg"></canvas>
+  <div class="ctin rv">
+    <div class="stag" style="justify-content:center">Let's Work Together</div>
+    <h2>Ready to Make Your<br>
+      <span style="background:linear-gradient(135deg,var(--c),var(--m),var(--y));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200%;animation:gsh 5s ease infinite">Brand Unmissable?</span>
+    </h2>
+    <p>From concept to print — we bring your vision to life at scale, across all of India.</p>
+    <div class="ctbs">
+      <a href="mailto:kanikadigital@gmail.com" class="bpri" style="font-size:.97rem;padding:16px 48px">Start a Project ↗</a>
+      <a href="https://www.kanikadigital.in" class="bsec" style="font-size:.97rem;padding:16px 48px">Visit Website →</a>
+    </div>
+    <div class="crow">
+      <div class="cch"><b>✉</b> kanikadigital@gmail.com</div>
+      <div class="cch"><b>🌐</b> www.kanikadigital.in</div>
+      <div class="cch"><b>📍</b> 6 Cities · Pan India</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Kanika Digital Prints & Solutions LLP. All rights reserved.</p>
+  <div class="fcit">
+    <span>MUMBAI</span><span class="fsep">◆</span><span>BANGALORE</span><span class="fsep">◆</span>
+    <span>HYDERABAD</span><span class="fsep">◆</span><span>LUCKNOW</span><span class="fsep">◆</span>
+    <span>KOLKATA</span><span class="fsep">◆</span><span>INDORE</span>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+const C  = '#00d4ff', M = '#ff0066', Y = '#ffd700', G = '#00ff88';
+const CMYK4 = [C,M,Y,G];
+const PI2 = Math.PI*2;
+
+function initCv(id){
+  const cv = document.getElementById(id);
+  const ctx = cv.getContext('2d');
+  function resize(){
+    const r = cv.parentElement.getBoundingClientRect();
+    cv.width = r.width; cv.height = r.height;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  return {cv,ctx};
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO — CMYK sphere + orbiting orbs + 3D print panels + ink drops
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const cv = document.getElementById('hero-cv');
+  const ctx = cv.getContext('2d');
+  function resize(){
+    const r = document.getElementById('hero').getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio||1,2);
+    cv.width=r.width*dpr; cv.height=r.height*dpr; ctx.scale(dpr,dpr);
+  }
+  resize(); window.addEventListener('resize',resize);
+
+  const N=1300, PHI=Math.PI*(3-Math.sqrt(5));
+  const sphere=Array.from({length:N},(_,i)=>{
+    const y=1-(i/(N-1))*2, r=Math.sqrt(1-y*y), th=PHI*i;
+    return{ox:Math.cos(th)*r,oy:y,oz:Math.sin(th)*r,sz:Math.random()*1.6+.5,c:CMYK4[i%4],br:Math.random()*.35+.6};
+  });
+  const ring=Array.from({length:160},(_,i)=>{
+    const a=(i/160)*PI2;
+    return{ox:Math.cos(a)*1.5,oy:Math.sin(a)*.1,oz:Math.sin(a)*1.5,sz:.9,c:C,br:.4};
+  });
+  const ORBS=[
+    {label:'C',color:C,orbit:1.85,tilt:.22,speed:.009,angle:0,trail:[]},
+    {label:'M',color:M,orbit:1.85,tilt:1.35,speed:.011,angle:1.57,trail:[]},
+    {label:'Y',color:Y,orbit:1.85,tilt:.82,speed:.008,angle:3.14,trail:[]},
+    {label:'K',color:'#bbbbff',orbit:1.85,tilt:2.1,speed:.007,angle:4.71,trail:[]},
+  ];
+  const TRAIL=28;
+  let rotY=0,rotX=.28,tmx=0,tmy=0,cmx=0,cmy=0;
+  cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();tmx=(e.clientX-r.left)/r.width-.5;tmy=(e.clientY-r.top)/r.height-.5});
+  cv.addEventListener('mouseleave',()=>{tmx=0;tmy=0});
+
+  const rY3=(x,y,z,a)=>{const c=Math.cos(a),s=Math.sin(a);return{x:x*c+z*s,y,z:-x*s+z*c}};
+  const rX3=(x,y,z,a)=>{const c=Math.cos(a),s=Math.sin(a);return{x,y:y*c-z*s,z:y*s+z*c}};
+  function proj(x,y,z,R,cx,cy,fov){const sc=fov/(fov+z*R);return{px:x*R*sc+cx,py:y*R*sc+cy,pz:z,sc}}
+  function xform(pts,R,cx,cy,fov){
+    return pts.map(p=>{
+      let {x,y,z}=rY3(p.ox,p.oy,p.oz,rotY);
+      ({x,y,z}=rX3(x,y,z,rotX+cmy*.6));({x,y,z}=rY3(x,y,z,cmx*.5));
+      const pr=proj(x,y,z,R,cx,cy,fov);
+      return{...pr,c:p.c,sz:p.sz,br:p.br||.8};
+    });
+  }
+  function orbPos(o){const a=o.angle,cT=Math.cos(o.tilt),sT=Math.sin(o.tilt);return{ox:Math.cos(a)*o.orbit,oy:Math.sin(a)*o.orbit*sT,oz:Math.sin(a)*o.orbit*cT}}
+
+  /* ── 3D floating print product panels ──
+     dX/dY = screen-space offset from sphere centre (scaled by perspective).
+     Positioned in the sphere half of the canvas so they never cover the text. */
+  const PANELS=[
+    {lbl:'Metro Wrap',   sub:'Railway Station',  c:C,         pw:112,ph:54, dX:  2,dY:-178,z:.58,ry:0,   dRy:.0052,ph:0  },
+    {lbl:'Bus Wrap',     sub:'Vehicle Branding', c:M,         pw:90, ph:44, dX:148,dY: -52,z:.65,ry:.4,  dRy:.0048,ph:1.4},
+    {lbl:'Hoarding',     sub:'5,400 Sq.Ft',      c:Y,         pw:118,ph:40, dX:158,dY: 118,z:.52,ry:-.3, dRy:.0040,ph:2.7},
+    {lbl:'Fabric Wall',  sub:'Indoor Digital',   c:G,         pw:96, ph:58, dX: -6,dY: 182,z:.72,ry:.2,  dRy:.0062,ph:.8 },
+    {lbl:'Kiosk Print',  sub:'Backlit Vinyl',    c:'#cc88ff', pw:74, ph:72, dX:175,dY:   2,z:.60,ry:.6,  dRy:.0078,ph:2.1},
+  ];
+
+  /* ── Ink drops: CMYK particles erupting from sphere surface ── */
+  const inkDrops=[];
+  function spawnDrop(){
+    if(inkDrops.length>65) return;
+    const pz=2*Math.random()-1, pr=Math.sqrt(1-pz*pz), th=Math.random()*PI2;
+    inkDrops.push({ox:pr*Math.cos(th),oy:pr*Math.sin(th),oz:pz,
+      dist:1,spd:.006+Math.random()*.009,maxD:.42+Math.random()*.52,
+      c:CMYK4[Math.floor(Math.random()*4)],sz:1+Math.random()*2.2});
+  }
+
+  let rafId=null, t=0, inkTk=0;
+
+  function draw(){
+    rafId=requestAnimationFrame(draw); t++; inkTk++;
+    const dpr=Math.min(window.devicePixelRatio||1,2);
+    const W=cv.width/dpr,H=cv.height/dpr;
+    if(!W||!H) return;
+    ctx.globalAlpha=1;
+    const cx=W*.75, cy=H*.5;
+    const R=Math.min(W*.5,H)*.29,fov=Math.min(W*.5,H)*1.1;
+    cmx+=(tmx-cmx)*.05; cmy+=(tmy-cmy)*.05; rotY+=.0045;
+
+    if(inkTk%16===0) spawnDrop();
+
+    ORBS.forEach(o=>{
+      o.angle+=o.speed;
+      const pos=orbPos(o);
+      let p=rY3(pos.ox,pos.oy,pos.oz,rotY);
+      p=rX3(p.x,p.y,p.z,rotX+cmy*.6); p=rY3(p.x,p.y,p.z,cmx*.5);
+      const pr=proj(p.x,p.y,p.z,R,cx,cy,fov);
+      o.trail.push({x:pr.px,y:pr.py,z:pr.pz});
+      if(o.trail.length>TRAIL) o.trail.shift();
+    });
+
+    /* ── Background ── */
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle='#030309'; ctx.fillRect(0,0,W,H);
+
+    /* Dot grid */
+    for(let gx=0;gx<W;gx+=44) for(let gy=0;gy<H;gy+=44){
+      ctx.beginPath(); ctx.arc(gx,gy,1,0,PI2);
+      ctx.fillStyle='rgba(0,212,255,.045)'; ctx.fill();
+    }
+
+    /* CMYK print registration marks — industry-standard corner crosses */
+    const regC=[C,M,Y,'#aaaaff'];
+    [[16,16],[W-16,16],[16,H-16],[W-16,H-16]].forEach(([rx,ry_],i)=>{
+      ctx.globalAlpha=.18; ctx.strokeStyle=regC[i]; ctx.lineWidth=.9;
+      ctx.beginPath(); ctx.arc(rx,ry_,8,0,PI2); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(rx-13,ry_); ctx.lineTo(rx+13,ry_);
+      ctx.moveTo(rx,ry_-13); ctx.lineTo(rx,ry_+13);
+      ctx.stroke();
+      ctx.beginPath(); ctx.arc(rx,ry_,2.2,0,PI2);
+      ctx.fillStyle=regC[i]; ctx.fill(); ctx.globalAlpha=1;
+    });
+
+    /* Ambient glows */
+    const ag=ctx.createRadialGradient(W*.22,H*.5,0,W*.22,H*.5,W*.35);
+    ag.addColorStop(0,'rgba(0,212,255,.04)'); ag.addColorStop(1,'transparent');
+    ctx.fillStyle=ag; ctx.fillRect(0,0,W,H);
+    const cg=ctx.createRadialGradient(cx,cy,0,cx,cy,R*2.2);
+    cg.addColorStop(0,'rgba(0,212,255,.09)'); cg.addColorStop(.5,'rgba(255,0,102,.05)'); cg.addColorStop(1,'transparent');
+    ctx.fillStyle=cg; ctx.fillRect(0,0,W,H);
+
+    /* ── Print product panels (drawn behind sphere) ── */
+    PANELS.forEach(panel=>{
+      panel.ry+=panel.dRy;
+      const sc=fov/(fov+panel.z*R);
+      /* Subtle parallax as sphere rotates — gives depth feel */
+      const parX=Math.sin(rotY*.38+panel.ph)*.055*R;
+      const parY=Math.cos(rotY*.28+panel.ph)*.028*R;
+      const px2=cx+panel.dX*sc+parX;
+      const py2=cy+panel.dY*sc+parY+Math.sin(t*.016+panel.ph)*6;
+      /* Y-axis tilt foreshortening */
+      const cosRy=Math.cos(panel.ry);
+      const panW=panel.pw*sc*Math.abs(cosRy), panH=panel.ph*sc;
+      if(panW<5||panH<5) return;
+      /* Don't render if panel is entirely in the text area or off-screen */
+      if(px2+panW<W*.44||px2-panW>W||py2+panH<0||py2-panH>H) return;
+      const alpha=Math.min(.48,(1.32-panel.z)*.52);
+      if(alpha<.04) return;
+      ctx.globalAlpha=alpha;
+      /* Glow halo */
+      ctx.shadowColor=panel.c; ctx.shadowBlur=12;
+      /* Glass body */
+      ctx.beginPath(); ctx.rect(px2-panW,py2-panH,panW*2,panH*2);
+      ctx.fillStyle='rgba(3,3,16,.85)'; ctx.fill(); ctx.shadowBlur=0;
+      /* Gradient border */
+      const bG=ctx.createLinearGradient(px2-panW,py2-panH,px2+panW,py2+panH);
+      bG.addColorStop(0,panel.c+'99'); bG.addColorStop(1,panel.c+'22');
+      ctx.strokeStyle=bG; ctx.lineWidth=1.3; ctx.stroke();
+      /* Top colour accent bar */
+      ctx.fillStyle=panel.c; ctx.globalAlpha=alpha*.62;
+      ctx.fillRect(px2-panW+1,py2-panH+1,(panW-1)*2,Math.max(2,3*sc));
+      /* Corner indicator dots */
+      if(panW>22){
+        [[px2-panW+5*sc,py2-panH+6*sc],[px2+panW-5*sc,py2-panH+6*sc]].forEach(([dx,dy])=>{
+          ctx.beginPath(); ctx.arc(dx,dy,1.8*sc,0,PI2);
+          ctx.fillStyle=panel.c; ctx.globalAlpha=alpha*.7; ctx.fill();
+        });
+      }
+      /* Label text */
+      if(panW>22&&panH>14){
+        const fSz=Math.max(7,Math.min(11,10*sc));
+        ctx.textAlign='center'; ctx.globalAlpha=Math.min(alpha*1.55,.68);
+        ctx.font=`700 ${fSz}px "Space Grotesk",sans-serif`;
+        ctx.shadowColor='rgba(0,0,0,.95)'; ctx.shadowBlur=4;
+        ctx.fillStyle='#fff'; ctx.fillText(panel.lbl,px2,py2+fSz*.4);
+        ctx.shadowBlur=0;
+        if(panH>22){
+          ctx.font=`${Math.max(6,fSz-2)}px "Space Grotesk",sans-serif`;
+          ctx.fillStyle=panel.c; ctx.globalAlpha=alpha*1.1;
+          ctx.fillText(panel.sub,px2,py2+fSz*1.65);
+        }
+        ctx.textAlign='start';
+      }
+      ctx.globalAlpha=1; ctx.shadowBlur=0;
+    });
+
+    /* ── ORBS trails ── */
+    ORBS.forEach(o=>{
+      o.trail.forEach((pt,i)=>{
+        const prog=i/o.trail.length,dep=(pt.z+1)*.5;
+        if(dep<=0) return;
+        ctx.beginPath(); ctx.arc(pt.x,pt.y,2.8*prog*dep,0,PI2);
+        ctx.fillStyle=o.color; ctx.globalAlpha=prog*.45*dep; ctx.fill();
+      });
+    });
+
+    /* ── Sphere + ring + orbs ── */
+    const spts=xform(sphere,R,cx,cy,fov);
+    const rpts=xform(ring,R,cx,cy,fov);
+    const opts=ORBS.map(o=>{
+      const pos=orbPos(o);
+      let p=rY3(pos.ox,pos.oy,pos.oz,rotY);
+      p=rX3(p.x,p.y,p.z,rotX+cmy*.6); p=rY3(p.x,p.y,p.z,cmx*.5);
+      const pr=proj(p.x,p.y,p.z,R,cx,cy,fov);
+      return{...pr,c:o.color,sz:7.5,br:1,lbl:o.label,isOrb:true};
+    });
+    const all=[...rpts,...spts,...opts].sort((a,b)=>a.pz-b.pz);
+    all.forEach(p=>{
+      const dep=(p.pz+1)*.5,alpha=Math.max(0,dep)*p.br*.92;
+      const size=Math.max(p.sz*p.sc*(p.isOrb?3.2:2.4),.3);
+      if(p.isOrb){
+        const gr=ctx.createRadialGradient(p.px,p.py,0,p.px,p.py,size*4.5);
+        gr.addColorStop(0,p.c+'bb'); gr.addColorStop(.5,p.c+'44'); gr.addColorStop(1,'transparent');
+        ctx.beginPath(); ctx.arc(p.px,p.py,size*4.5,0,PI2); ctx.fillStyle=gr; ctx.globalAlpha=alpha*.55; ctx.fill();
+        ctx.beginPath(); ctx.arc(p.px,p.py,size,0,PI2); ctx.fillStyle=p.c; ctx.globalAlpha=alpha; ctx.fill();
+        ctx.beginPath(); ctx.arc(p.px,p.py,size*.35,0,PI2); ctx.fillStyle='rgba(255,255,255,.8)'; ctx.globalAlpha=alpha*.9; ctx.fill();
+        if(dep>.55){
+          ctx.font=`900 ${Math.max(size*.85,8)}px Inter,sans-serif`;
+          ctx.fillStyle='#fff'; ctx.textAlign='center'; ctx.globalAlpha=alpha;
+          ctx.fillText(p.lbl,p.px,p.py+size*2.4);
+        }
+      } else {
+        if(dep>.58&&p.sz>1.1){
+          const gr2=ctx.createRadialGradient(p.px,p.py,0,p.px,p.py,size*3.2);
+          gr2.addColorStop(0,p.c+'44'); gr2.addColorStop(1,'transparent');
+          ctx.beginPath(); ctx.arc(p.px,p.py,size*3.2,0,PI2); ctx.fillStyle=gr2; ctx.globalAlpha=alpha*.38; ctx.fill();
+        }
+        ctx.beginPath(); ctx.arc(p.px,p.py,size,0,PI2); ctx.fillStyle=p.c; ctx.globalAlpha=alpha; ctx.fill();
+      }
+    });
+
+    /* ── Ink drops: CMYK particles erupting from sphere surface ── */
+    for(let i=inkDrops.length-1;i>=0;i--){
+      const d=inkDrops[i]; d.dist+=d.spd;
+      const prog=(d.dist-1)/d.maxD;
+      if(prog>=1){inkDrops.splice(i,1);continue;}
+      const dLife=1-prog;
+      let {x,y,z}=rY3(d.ox*d.dist,d.oy*d.dist,d.oz*d.dist,rotY);
+      ({x,y,z}=rX3(x,y,z,rotX+cmy*.6)); ({x,y,z}=rY3(x,y,z,cmx*.5));
+      if(z>1.55) continue;
+      const sc2=fov/(fov+z*R);
+      const dpx=x*R*sc2+cx, dpy=y*R*sc2+cy;
+      const gr3=ctx.createRadialGradient(dpx,dpy,0,dpx,dpy,d.sz*sc2*4);
+      gr3.addColorStop(0,d.c+'aa'); gr3.addColorStop(1,'transparent');
+      ctx.beginPath(); ctx.arc(dpx,dpy,d.sz*sc2*4,0,PI2);
+      ctx.fillStyle=gr3; ctx.globalAlpha=dLife*.28; ctx.fill();
+      ctx.beginPath(); ctx.arc(dpx,dpy,d.sz*sc2,0,PI2);
+      ctx.fillStyle=d.c; ctx.globalAlpha=dLife*.58; ctx.fill();
+    }
+
+    ctx.globalAlpha=1; ctx.textAlign='start';
+  }
+  draw();
+  document.addEventListener('visibilitychange',()=>{
+    if(!document.hidden&&!rafId){draw();}
+  });
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   STATS BG — CMYK colour-bar matrix (like a print calibration strip)
+   Rows of CMYK dots drifting slowly, pulsing in colour
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const {cv,ctx}=initCv('stats-bg');
+  const dots=[];
+  function build(){
+    dots.length=0;
+    const W=cv.width,H=cv.height;
+    const cols=Math.ceil(W/40)+2, rows=Math.ceil(H/40)+2;
+    for(let r=0;r<rows;r++) for(let c2=0;c2<cols;c2++){
+      dots.push({
+        x:(c2-.5)*40, y:(r-.5)*40,
+        c:CMYK4[(r*cols+c2)%4],
+        ph:Math.random()*PI2,
+        spd:.4+Math.random()*.6,
+        sz:1.8+Math.random()*2.2,
+      });
+    }
+  }
+  build(); window.addEventListener('resize',build);
+  let t=0;
+  (function anim(){
+    requestAnimationFrame(anim); t+=.012;
+    const W=cv.width,H=cv.height;
+    ctx.clearRect(0,0,W,H);
+    dots.forEach(d=>{
+      const alpha=(.08+Math.sin(t*d.spd+d.ph)*.06)*1;
+      ctx.beginPath(); ctx.arc(d.x,d.y,d.sz,0,PI2);
+      ctx.fillStyle=d.c; ctx.globalAlpha=alpha; ctx.fill();
+    });
+    ctx.globalAlpha=1;
+  })();
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   ABOUT BG — ink waves: concentric rings radiating from two foci
+   Represents spreading print ink, CMYK colours cycling
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const {cv,ctx}=initCv('about-bg');
+  let t=0;
+  const foci=[{fx:.3,fy:.5,c:C,ph:0},{fx:.75,fy:.4,c:M,ph:1.8},{fx:.5,fy:.85,c:Y,ph:3.6}];
+  (function anim(){
+    requestAnimationFrame(anim); t+=.008;
+    const W=cv.width,H=cv.height;
+    ctx.clearRect(0,0,W,H);
+    foci.forEach(f=>{
+      for(let r=0;r<8;r++){
+        const rad=(((t+f.ph+r*0.55) % 6)*Math.min(W,H)*.1)+10;
+        const alpha=Math.max(0,.28-rad/(Math.min(W,H)*.6))*.55;
+        ctx.beginPath(); ctx.arc(f.fx*W,f.fy*H,rad,0,PI2);
+        ctx.strokeStyle=f.c; ctx.globalAlpha=alpha; ctx.lineWidth=1.2; ctx.stroke();
+      }
+    });
+    ctx.globalAlpha=1;
+  })();
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   WHY BG — hexagonal network grid in perspective
+   Nodes pulse and connect — represents multi-city network
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const {cv,ctx}=initCv('why-bg');
+  let t=0;
+  function hexPts(cx,cy,r){
+    return Array.from({length:6},(_,i)=>{
+      const a=Math.PI/180*(60*i-30);
+      return{x:cx+r*Math.cos(a),y:cy+r*Math.sin(a)};
+    });
+  }
+  const hexes=[];
+  function build(){
+    hexes.length=0;
+    const W=cv.width,H=cv.height;
+    const size=62,hx=size*Math.sqrt(3),hy=size*1.5;
+    const cols=Math.ceil(W/hx)+2,rows=Math.ceil(H/hy)+2;
+    for(let r=0;r<rows;r++) for(let c2=0;c2<cols;c2++){
+      const x=(c2-.5)*hx+(r%2?hx/2:0), y=(r-.5)*hy;
+      hexes.push({x,y,ph:Math.random()*PI2,spd:.3+Math.random()*.4,c:CMYK4[(r+c2)%4]});
+    }
+  }
+  build(); window.addEventListener('resize',build);
+  (function anim(){
+    requestAnimationFrame(anim); t+=.008;
+    const W=cv.width,H=cv.height;
+    ctx.clearRect(0,0,W,H);
+    hexes.forEach(h=>{
+      const alpha=.04+Math.sin(t*h.spd+h.ph)*.03;
+      const pts=hexPts(h.x,h.y,58);
+      ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
+      pts.forEach(p=>ctx.lineTo(p.x,p.y)); ctx.closePath();
+      ctx.strokeStyle=h.c; ctx.globalAlpha=alpha; ctx.lineWidth=.8; ctx.stroke();
+      /* node dot at centre */
+      const na=.06+Math.sin(t*h.spd+h.ph+1)*.05;
+      ctx.beginPath(); ctx.arc(h.x,h.y,2,0,PI2);
+      ctx.fillStyle=h.c; ctx.globalAlpha=na; ctx.fill();
+    });
+    ctx.globalAlpha=1;
+  })();
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   SERVICES BG — 3D starfield warp + rotating CMYK wireframe cubes
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const {cv,ctx}=initCv('services-bg');
+  let t=0;
+
+  /* ── 3D Starfield: 600 particles flying toward viewer ── */
+  const STARS=600;
+  const stars=[];
+  function initStars(){
+    stars.length=0;
+    for(let i=0;i<STARS;i++) stars.push({
+      x:(Math.random()-.5)*3200,
+      y:(Math.random()-.5)*3200,
+      z:Math.random()*2200+100,
+      c:CMYK4[i%4]
+    });
+  }
+  initStars(); window.addEventListener('resize',initStars);
+
+  /* ── 8 rotating CMYK wireframe cubes ── */
+  const CV=[[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]];
+  const CE=[[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]];
+  const cubes=Array.from({length:8},(_,i)=>({
+    ox:(Math.random()-.5)*.9,
+    oy:(Math.random()-.5)*.9,
+    z:350+i*180,
+    sz:40+i*14,
+    rx:Math.random()*PI2, ry:Math.random()*PI2, rz:Math.random()*PI2,
+    drx:.005+Math.random()*.007,
+    dry:.007+Math.random()*.008,
+    drz:.003+Math.random()*.005,
+    c:CMYK4[i%4],
+    phaseX:Math.random()*PI2,
+    phaseY:Math.random()*PI2,
+    driftSpd:.18+Math.random()*.22
+  }));
+
+  /* Rotate a 3D point around X, Y, Z axes */
+  function rot3(x,y,z,rx,ry,rz){
+    let ny=y*Math.cos(rx)-z*Math.sin(rx), nz=y*Math.sin(rx)+z*Math.cos(rx);
+    y=ny; z=nz;
+    let nx=x*Math.cos(ry)+z*Math.sin(ry); nz=-x*Math.sin(ry)+z*Math.cos(ry);
+    x=nx; z=nz;
+    nx=x*Math.cos(rz)-y*Math.sin(rz); ny=x*Math.sin(rz)+y*Math.cos(rz);
+    return[nx,ny,z];
+  }
+
+  (function anim(){
+    requestAnimationFrame(anim); t+=.012;
+    const W=cv.width, H=cv.height;
+    const cx=W*.5, cy=H*.5;
+    const FOV=Math.min(W,H)*.75;
+    ctx.clearRect(0,0,W,H);
+
+    /* ① Starfield warp — particles flying toward viewer */
+    stars.forEach(s=>{
+      const prevZ=s.z;
+      s.z-=9;
+      if(s.z<1){s.z=2200; s.x=(Math.random()-.5)*3200; s.y=(Math.random()-.5)*3200;}
+      const sc1=FOV/s.z, sc2=FOV/prevZ;
+      const px=s.x*sc1+cx, py=s.y*sc1+cy;
+      const ppx=s.x*sc2+cx, ppy=s.y*sc2+cy;
+      if(px<-10||px>W+10||py<-10||py>H+10) return;
+      const depth=1-s.z/2200;
+      /* Speed streak */
+      ctx.beginPath(); ctx.moveTo(ppx,ppy); ctx.lineTo(px,py);
+      ctx.strokeStyle=s.c; ctx.globalAlpha=depth*.42; ctx.lineWidth=Math.max(.4,2.2*sc1); ctx.stroke();
+      /* Head dot */
+      ctx.beginPath(); ctx.arc(px,py,Math.max(.3,2.8*sc1),0,PI2);
+      ctx.fillStyle=s.c; ctx.globalAlpha=depth*.7; ctx.fill();
+    });
+
+    /* ② Rotating wireframe cubes */
+    cubes.forEach((cube,ci)=>{
+      cube.rx+=cube.drx; cube.ry+=cube.dry; cube.rz+=cube.drz;
+      /* Floating drift */
+      const bx=cx+cube.ox*W*.38*Math.sin(t*cube.driftSpd+cube.phaseX);
+      const by=cy+cube.oy*H*.38*Math.cos(t*cube.driftSpd+cube.phaseY);
+      /* Project all 8 vertices */
+      const proj=CV.map(([vx,vy,vz])=>{
+        const[rx,ry,rz]=rot3(vx*cube.sz,vy*cube.sz,vz*cube.sz,cube.rx,cube.ry,cube.rz);
+        const zd=Math.max(rz+cube.z,1);
+        const s2=FOV/zd;
+        return{px:rx*s2+bx, py:ry*s2+by, a:(1-cube.z/1800)*.32};
+      });
+      /* Draw edges */
+      CE.forEach(([a,b])=>{
+        ctx.beginPath(); ctx.moveTo(proj[a].px,proj[a].py); ctx.lineTo(proj[b].px,proj[b].py);
+        ctx.strokeStyle=cube.c; ctx.globalAlpha=proj[a].a; ctx.lineWidth=1.1; ctx.stroke();
+      });
+      /* Glow at cube centre */
+      const cg=ctx.createRadialGradient(bx,by,0,bx,by,cube.sz*.6);
+      cg.addColorStop(0,cube.c+'20'); cg.addColorStop(1,'transparent');
+      ctx.beginPath(); ctx.arc(bx,by,cube.sz*.6,0,PI2);
+      ctx.fillStyle=cg; ctx.globalAlpha=.6; ctx.fill();
+    });
+
+    /* ③ Central ambient CMYK glow orbs */
+    CMYK4.forEach((col,i)=>{
+      const ox=cx+Math.cos(t*.4+i*PI2*.25)*W*.28;
+      const oy=cy+Math.sin(t*.35+i*PI2*.25)*H*.22;
+      const gr=ctx.createRadialGradient(ox,oy,0,ox,oy,90);
+      gr.addColorStop(0,col+'1a'); gr.addColorStop(1,'transparent');
+      ctx.beginPath(); ctx.arc(ox,oy,90,0,PI2);
+      ctx.fillStyle=gr; ctx.globalAlpha=.6; ctx.fill();
+    });
+
+    ctx.globalAlpha=1;
+  })();
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   PRESENCE BG — floating constellation particles with connection lines
+   Represents the pan-India city network
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const {cv,ctx}=initCv('presence-bg');
+  let t=0;
+  const pts=[];
+  function build(){
+    pts.length=0;
+    const W=cv.width,H=cv.height;
+    for(let i=0;i<55;i++) pts.push({
+      x:Math.random()*W, y:Math.random()*H,
+      vx:(Math.random()-.5)*.25, vy:(Math.random()-.5)*.25,
+      c:CMYK4[i%4], sz:1.5+Math.random()*2
+    });
+  }
+  build(); window.addEventListener('resize',build);
+  (function anim(){
+    requestAnimationFrame(anim); t+=.007;
+    const W=cv.width,H=cv.height;
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+    });
+    /* connections */
+    for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<140){
+        ctx.beginPath(); ctx.moveTo(pts[i].x,pts[i].y); ctx.lineTo(pts[j].x,pts[j].y);
+        ctx.strokeStyle=C; ctx.globalAlpha=(1-dist/140)*.07; ctx.lineWidth=.7; ctx.stroke();
+      }
+    }
+    /* dots */
+    pts.forEach(p=>{
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.sz,0,PI2);
+      ctx.fillStyle=p.c; ctx.globalAlpha=.2; ctx.fill();
+    });
+    ctx.globalAlpha=1;
+  })();
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   CLIENTS BG — concentric orbiting rings of brand-dot particles
+   Represents brands orbiting around Kanika
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const {cv,ctx}=initCv('clients-bg');
+  let t=0;
+  const rings=[
+    {r:.32,n:18,spd:.004,c:C,sz:2.4},
+    {r:.46,n:26,spd:-.003,c:M,sz:2},
+    {r:.6,n:34,spd:.002,c:Y,sz:1.6},
+    {r:.74,n:42,spd:-.0015,c:G,sz:1.4},
+  ];
+  (function anim(){
+    requestAnimationFrame(anim); t+=1;
+    const W=cv.width,H=cv.height,cx=W/2,cy=H/2;
+    ctx.clearRect(0,0,W,H);
+    const base=Math.min(W,H)*.5;
+    rings.forEach(ring=>{
+      const off=t*ring.spd;
+      for(let i=0;i<ring.n;i++){
+        const a=(i/ring.n)*PI2+off;
+        const px=cx+Math.cos(a)*ring.r*base;
+        const py=cy+Math.sin(a)*ring.r*base*.35;
+        const depth=(.5+Math.sin(a)*.5);
+        ctx.beginPath(); ctx.arc(px,py,ring.sz*depth,0,PI2);
+        ctx.fillStyle=ring.c; ctx.globalAlpha=depth*.15; ctx.fill();
+      }
+      /* ring trace */
+      ctx.beginPath();
+      ctx.ellipse(cx,cy,ring.r*base,ring.r*base*.35,0,0,PI2);
+      ctx.strokeStyle=ring.c; ctx.globalAlpha=.04; ctx.lineWidth=.8; ctx.stroke();
+    });
+    ctx.globalAlpha=1;
+  })();
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   CTA BG — CMYK ink explosion + rising spark particles
+   Dramatic particles bursting from centre outward
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const {cv,ctx}=initCv('cta-bg');
+  let t=0;
+  const sparks=[];
+  function spawn(){
+    const c=CMYK4[Math.floor(Math.random()*4)];
+    const a=Math.random()*PI2;
+    const spd=.4+Math.random()*1.8;
+    sparks.push({a,spd,dist:0,c,life:1,sz:1.2+Math.random()*2.5,trail:[]});
+  }
+  for(let i=0;i<40;i++) spawn();
+  (function anim(){
+    requestAnimationFrame(anim); t+=.012;
+    const W=cv.width,H=cv.height,cx=W/2,cy=H/2;
+    ctx.clearRect(0,0,W,H);
+    /* centre glow */
+    const cg=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.min(W,H)*.55);
+    cg.addColorStop(0,'rgba(0,212,255,.06)');
+    cg.addColorStop(.4,'rgba(255,0,102,.04)');
+    cg.addColorStop(1,'transparent');
+    ctx.fillStyle=cg; ctx.fillRect(0,0,W,H);
+
+    for(let i=sparks.length-1;i>=0;i--){
+      const s=sparks[i];
+      s.dist+=s.spd; s.life-=.005;
+      const x=cx+Math.cos(s.a)*s.dist, y=cy+Math.sin(s.a)*s.dist*.55;
+      s.trail.push({x,y});
+      if(s.trail.length>14) s.trail.shift();
+
+      if(s.life<=0||s.dist>Math.max(W,H)*.65){
+        sparks.splice(i,1); spawn(); continue;
+      }
+      /* trail */
+      s.trail.forEach((pt,idx)=>{
+        const prog=idx/s.trail.length;
+        ctx.beginPath(); ctx.arc(pt.x,pt.y,s.sz*prog*.7,0,PI2);
+        ctx.fillStyle=s.c; ctx.globalAlpha=s.life*prog*.25; ctx.fill();
+      });
+      /* head */
+      const gr=ctx.createRadialGradient(x,y,0,x,y,s.sz*3);
+      gr.addColorStop(0,s.c+'cc'); gr.addColorStop(1,'transparent');
+      ctx.beginPath(); ctx.arc(x,y,s.sz*3,0,PI2);
+      ctx.fillStyle=gr; ctx.globalAlpha=s.life*.4; ctx.fill();
+      ctx.beginPath(); ctx.arc(x,y,s.sz,0,PI2);
+      ctx.fillStyle=s.c; ctx.globalAlpha=s.life*.8; ctx.fill();
+    }
+    ctx.globalAlpha=1;
+  })();
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO TITLE char animation
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  function wrap(el,delay){
+    const txt=el.textContent; el.textContent='';
+    txt.split('').forEach((ch,i)=>{
+      const s=document.createElement('span');
+      s.className='char'; s.textContent=ch;
+      s.style.transitionDelay=(delay+i*.038)+'s';
+      el.appendChild(s);
+    });
+  }
+  wrap(document.getElementById('row1'),.3);
+  wrap(document.getElementById('row2'),.52);
+  setTimeout(()=>document.querySelectorAll('.char').forEach(c=>c.classList.add('on')),150);
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   INDIA MAP — HD retina canvas, 87-point geo outline, rich animations
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const cv=document.getElementById('map-cv');
+  const ctx=cv.getContext('2d');
+
+  const DPR=Math.min(window.devicePixelRatio||1,2);
+  const W=520,H=590;
+  cv.width=W*DPR; cv.height=H*DPR;
+  cv.style.width=W+'px'; cv.style.height=H+'px';
+  ctx.scale(DPR,DPR);
+
+  const toX=lon=>(lon-68)*(W/29);
+  const toY=lat=>(37-lat)*(H/29);
+
+  const GEO=[
+    [68.2,23.6],[68.1,24.3],[68.4,25.0],[68.8,25.7],[69.2,26.3],
+    [69.8,27.2],[70.2,28.0],[70.5,28.7],[71.0,29.5],[71.5,30.2],
+    [72.2,30.7],[73.0,31.0],[73.8,31.5],[74.5,32.3],[74.3,33.0],
+    [74.0,33.5],[74.5,34.0],[75.2,34.5],[76.2,34.8],[77.0,35.1],
+    [78.0,35.5],[79.0,35.2],[79.5,35.0],
+    [79.8,34.0],[80.0,32.0],[80.0,29.5],[80.2,28.7],
+    [81.0,28.4],[82.0,28.2],[83.5,28.0],[85.0,27.8],[86.5,27.5],[87.5,27.5],[88.0,27.5],
+    [88.5,27.8],[89.0,27.3],[89.5,27.0],[90.5,26.8],[91.5,27.0],
+    [92.0,27.2],[92.8,27.2],[93.8,27.5],[95.0,27.8],[96.0,28.0],[97.0,28.1],
+    [96.8,27.2],[96.2,26.2],[95.2,25.2],[94.2,24.2],[93.5,23.0],[92.8,22.5],
+    [91.8,22.5],[89.5,22.0],[87.8,21.5],
+    [87.0,20.5],[86.5,19.8],[86.0,19.0],[85.5,18.2],[85.0,17.5],
+    [84.0,16.5],[83.0,15.5],[82.0,14.5],[80.5,13.5],[80.2,12.5],
+    [79.8,11.5],[79.5,10.5],[78.5,9.0],
+    [77.5,8.1],
+    [76.8,8.4],[76.5,9.0],[76.0,10.0],[75.5,11.0],[75.0,12.0],
+    [74.8,13.0],[74.5,13.5],[74.0,14.5],[73.8,15.5],[73.5,16.5],
+    [73.2,17.5],[73.0,18.0],[72.8,19.0],[72.5,20.0],
+    [72.2,20.5],[72.0,21.0],[71.5,21.3],[71.0,21.5],[70.5,22.0],
+    [70.0,22.5],[69.5,22.5],[69.0,23.0],[68.5,23.2]
+  ];
+  const outline=GEO.map(([lon,lat])=>[toX(lon),toY(lat)]);
+
+  const cities=[
+    {name:'Indore',   role:'Headquarters', state:'Madhya Pradesh', lon:75.85,lat:22.72,c:'#ffd700',yr:'Est. 2006',dx:-18,al:'right'},
+    {name:'Mumbai',   role:'Branch Office', state:'Maharashtra',   lon:72.88,lat:19.08,c:'#00ff88',yr:'Est. 2009',dx: 18,al:'left'},
+    {name:'Bangalore',role:'Branch Office', state:'Karnataka',     lon:77.59,lat:12.97,c:'#ff0066',yr:'Est. 2018',dx: 18,al:'left'},
+    {name:'Lucknow',  role:'Branch Office', state:'Uttar Pradesh', lon:80.95,lat:26.85,c:'#00d4ff',yr:'Est. 2021',dx: 18,al:'left'},
+    {name:'Kolkata',  role:'Branch Office', state:'West Bengal',   lon:88.36,lat:22.57,c:'#ff0066',yr:'Est. 2023',dx: 18,al:'left'},
+    {name:'Hyderabad',role:'Branch Office', state:'Telangana',     lon:78.47,lat:17.39,c:'#00d4ff',yr:'Est. 2025',dx: 18,al:'left'},
+  ].map(c=>({...c,x:toX(c.lon),y:toY(c.lat)}));
+
+  function smoothPath(pts){
+    ctx.moveTo(pts[0][0],pts[0][1]);
+    for(let i=1;i<pts.length-1;i++){
+      const mx=(pts[i][0]+pts[i+1][0])/2,my=(pts[i][1]+pts[i+1][1])/2;
+      ctx.quadraticCurveTo(pts[i][0],pts[i][1],mx,my);
+    }
+    ctx.lineTo(pts[pts.length-1][0],pts[pts.length-1][1]);
+  }
+
+  function rrect(x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+    ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+    ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath();
+  }
+
+  const comets=[];
+  cities.forEach((a,i)=>cities.slice(i+1).forEach(b=>{
+    const d=Math.hypot(a.x-b.x,a.y-b.y);
+    if(d<480){
+      const n=d>265?2:1;
+      for(let k=0;k<n;k++)
+        comets.push({a,b,p:Math.random(),sp:0.0022+Math.random()*0.0028,tail:[]});
+    }
+  }));
+
+  /* ── Hover state ── */
+  let hoveredCity=null, hoverAnim=0;
+  const burstPts=[];
+
+  cv.addEventListener('mousemove',e=>{
+    const rect=cv.getBoundingClientRect();
+    const mx=(e.clientX-rect.left)*(W/rect.width);
+    const my=(e.clientY-rect.top)*(H/rect.height);
+    const prev=hoveredCity; hoveredCity=null;
+    cities.forEach(city=>{if(Math.hypot(mx-city.x,my-city.y)<30) hoveredCity=city;});
+    cv.style.cursor=hoveredCity?'pointer':'default';
+    if(hoveredCity&&hoveredCity!==prev){
+      hoverAnim=0; burstPts.length=0;
+      for(let i=0;i<22;i++){
+        const a2=(i/22)*PI2, spd=1.8+Math.random()*2.8;
+        burstPts.push({x:hoveredCity.x,y:hoveredCity.y,vx:Math.cos(a2)*spd,vy:Math.sin(a2)*spd,
+          life:1,c:hoveredCity.c,sz:1.8+Math.random()*2.2});
+      }
+    }
+  });
+  cv.addEventListener('mouseleave',()=>{hoveredCity=null; cv.style.cursor='default';});
+
+  let t=0, scanA=0;
+  const CX=224, CY=362;
+
+  (function draw(){
+    requestAnimationFrame(draw); t++; scanA+=0.007;
+    ctx.clearRect(0,0,W,H);
+
+    /* ① Grid */
+    ctx.strokeStyle='rgba(0,212,255,0.04)'; ctx.lineWidth=0.5;
+    for(let x=0;x<=W;x+=30){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}
+    for(let y=0;y<=H;y+=30){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+
+    /* ② Terrain fill */
+    ctx.beginPath(); smoothPath(outline); ctx.closePath();
+    const fill=ctx.createRadialGradient(CX,CY,0,CX,CY,360);
+    fill.addColorStop(0,'rgba(0,212,255,0.13)');
+    fill.addColorStop(0.5,'rgba(0,100,200,0.06)');
+    fill.addColorStop(1,'rgba(0,50,120,0.02)');
+    ctx.fillStyle=fill; ctx.fill();
+
+    /* ③ Border 4-layer glow */
+    const pb=Math.sin(t*0.018)*0.5+0.5;
+    ctx.beginPath(); smoothPath(outline); ctx.closePath();
+    ctx.strokeStyle=`rgba(0,212,255,${0.07+pb*0.05})`; ctx.lineWidth=16; ctx.stroke();
+    ctx.beginPath(); smoothPath(outline); ctx.closePath();
+    ctx.strokeStyle=`rgba(0,212,255,${0.14+pb*0.09})`; ctx.lineWidth=7; ctx.stroke();
+    ctx.beginPath(); smoothPath(outline); ctx.closePath();
+    ctx.strokeStyle=`rgba(0,212,255,${0.38+pb*0.26})`; ctx.lineWidth=2; ctx.stroke();
+    ctx.beginPath(); smoothPath(outline); ctx.closePath();
+    ctx.strokeStyle='rgba(160,240,255,0.14)'; ctx.lineWidth=0.8; ctx.stroke();
+
+    /* ④ Radar sweep */
+    ctx.save();
+    ctx.beginPath(); smoothPath(outline); ctx.closePath(); ctx.clip();
+    const sx=CX+Math.cos(scanA)*420,sy=CY+Math.sin(scanA)*420;
+    const swG=ctx.createLinearGradient(CX,CY,sx,sy);
+    swG.addColorStop(0,'rgba(0,212,255,0)'); swG.addColorStop(0.75,'rgba(0,212,255,0)');
+    swG.addColorStop(0.92,'rgba(0,212,255,0.08)'); swG.addColorStop(1,'rgba(0,212,255,0)');
+    ctx.beginPath(); ctx.moveTo(CX,CY); ctx.lineTo(sx,sy);
+    ctx.strokeStyle=swG; ctx.lineWidth=4; ctx.stroke();
+    const sx2=CX+Math.cos(scanA+Math.PI)*300,sy2=CY+Math.sin(scanA+Math.PI)*300;
+    const swG2=ctx.createLinearGradient(CX,CY,sx2,sy2);
+    swG2.addColorStop(0,'rgba(255,0,102,0)'); swG2.addColorStop(0.8,'rgba(255,0,102,0)');
+    swG2.addColorStop(0.94,'rgba(255,0,102,0.05)'); swG2.addColorStop(1,'rgba(255,0,102,0)');
+    ctx.beginPath(); ctx.moveTo(CX,CY); ctx.lineTo(sx2,sy2);
+    ctx.strokeStyle=swG2; ctx.lineWidth=3; ctx.stroke();
+    ctx.restore();
+
+    /* ⑤ Routes + comets */
+    ctx.setLineDash([3,11]); ctx.lineWidth=0.75;
+    comets.forEach(cm=>{
+      cm.p=(cm.p+cm.sp)%1;
+      const {a,b,p}=cm;
+      const fl=Math.sin(t*0.013+a.x*0.009)*0.5+0.5;
+      ctx.strokeStyle=`rgba(0,212,255,${0.05+fl*0.07})`;
+      ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+      const cx2=a.x+(b.x-a.x)*p,cy2=a.y+(b.y-a.y)*p;
+      cm.tail.push({x:cx2,y:cy2}); if(cm.tail.length>12) cm.tail.shift();
+      cm.tail.forEach((pt,idx)=>{
+        const prog=idx/cm.tail.length;
+        ctx.beginPath(); ctx.arc(pt.x,pt.y,1.8*prog,0,PI2);
+        ctx.fillStyle=a.c; ctx.globalAlpha=prog*0.5; ctx.fill();
+      });
+      ctx.globalAlpha=1;
+      const hg=ctx.createRadialGradient(cx2,cy2,0,cx2,cy2,8);
+      hg.addColorStop(0,a.c+'ee'); hg.addColorStop(0.5,a.c+'55'); hg.addColorStop(1,'transparent');
+      ctx.beginPath(); ctx.arc(cx2,cy2,8,0,PI2); ctx.fillStyle=hg; ctx.fill();
+      ctx.beginPath(); ctx.arc(cx2,cy2,2.5,0,PI2); ctx.fillStyle=a.c; ctx.fill();
+      ctx.beginPath(); ctx.arc(cx2,cy2,1,0,PI2); ctx.fillStyle='#fff'; ctx.fill();
+    });
+    ctx.setLineDash([]);
+
+    /* ⑥ City markers */
+    cities.forEach((city,i)=>{
+      const isH=city===hoveredCity;
+      const rings=isH?5:3;
+      for(let r=0;r<rings;r++){
+        const ph=Math.sin(t*0.042+i*1.05+r*0.9)*0.5+0.5;
+        const rad=(isH?14:11)+r*(isH?11:9)+ph*(isH?24:15);
+        const alpha=Math.max(0,(isH?0.42:0.30-r*0.09)*(1-ph*0.65));
+        ctx.beginPath(); ctx.arc(city.x,city.y,rad,0,PI2);
+        ctx.strokeStyle=city.c; ctx.globalAlpha=alpha; ctx.lineWidth=isH?2:1.3; ctx.stroke();
+      }
+      ctx.globalAlpha=1;
+      const hR=isH?36:24;
+      const halo=ctx.createRadialGradient(city.x,city.y,0,city.x,city.y,hR);
+      halo.addColorStop(0,city.c+'bb'); halo.addColorStop(0.4,city.c+'44'); halo.addColorStop(1,'transparent');
+      ctx.beginPath(); ctx.arc(city.x,city.y,hR,0,PI2); ctx.fillStyle=halo; ctx.fill();
+      const dotR=isH?9.5:7;
+      ctx.beginPath(); ctx.arc(city.x,city.y,dotR+2.5,0,PI2);
+      ctx.strokeStyle=city.c; ctx.globalAlpha=0.55; ctx.lineWidth=1.8; ctx.stroke(); ctx.globalAlpha=1;
+      const dg=ctx.createRadialGradient(city.x-2,city.y-2,0,city.x,city.y,dotR);
+      dg.addColorStop(0,'#fff'); dg.addColorStop(0.35,city.c); dg.addColorStop(1,city.c+'88');
+      ctx.beginPath(); ctx.arc(city.x,city.y,dotR,0,PI2); ctx.fillStyle=dg; ctx.fill();
+      ctx.beginPath(); ctx.arc(city.x,city.y,3,0,PI2); ctx.fillStyle='#fff'; ctx.fill();
+      const lx=city.x+city.dx;
+      ctx.textAlign=city.al;
+      ctx.font=`bold ${isH?12.5:11.5}px "Space Grotesk",sans-serif`;
+      ctx.fillStyle='rgba(255,255,255,0.96)'; ctx.globalAlpha=1;
+      ctx.shadowColor='rgba(0,0,0,0.8)'; ctx.shadowBlur=6;
+      ctx.fillText(city.name,lx,city.y+4); ctx.shadowBlur=0;
+      ctx.font='9.5px "Space Grotesk",sans-serif';
+      ctx.fillStyle=city.c; ctx.globalAlpha=0.9;
+      ctx.fillText(city.yr.replace('Est. ',''),lx,city.y+17);
+      ctx.globalAlpha=1;
+    });
+
+    /* ⑦ Burst particles on hover enter */
+    if(hoveredCity) hoverAnim=Math.min(hoverAnim+1,60);
+    for(let i=burstPts.length-1;i>=0;i--){
+      const bp=burstPts[i];
+      bp.x+=bp.vx; bp.y+=bp.vy; bp.vx*=0.91; bp.vy*=0.91; bp.life-=0.022;
+      if(bp.life<=0){burstPts.splice(i,1);continue;}
+      const gr=ctx.createRadialGradient(bp.x,bp.y,0,bp.x,bp.y,bp.sz*2.5);
+      gr.addColorStop(0,bp.c+'cc'); gr.addColorStop(1,'transparent');
+      ctx.beginPath(); ctx.arc(bp.x,bp.y,bp.sz*2.5,0,PI2);
+      ctx.fillStyle=gr; ctx.globalAlpha=bp.life*0.65; ctx.fill();
+      ctx.beginPath(); ctx.arc(bp.x,bp.y,bp.sz,0,PI2);
+      ctx.fillStyle=bp.c; ctx.globalAlpha=bp.life; ctx.fill();
+    }
+    ctx.globalAlpha=1;
+
+    /* ⑧ Hover info tooltip */
+    if(hoveredCity){
+      const city=hoveredCity;
+      const fade=Math.min(hoverAnim/20,1);
+      const CW2=158, CH2=100, PAD=30;
+      let tx=city.al==='left'?city.x+PAD:city.x-PAD-CW2;
+      if(tx<8) tx=city.x+PAD;
+      if(tx+CW2>W-8) tx=city.x-PAD-CW2;
+      tx=Math.max(8,Math.min(W-CW2-8,tx));
+      let ty=city.y-CH2/2;
+      ty=Math.max(8,Math.min(H-CH2-8,ty));
+
+      /* Dashed connector line */
+      const lineX=city.al==='left'?tx:tx+CW2;
+      ctx.beginPath(); ctx.moveTo(city.x,city.y); ctx.lineTo(lineX,ty+CH2/2);
+      ctx.strokeStyle=city.c; ctx.globalAlpha=fade*0.38; ctx.lineWidth=1;
+      ctx.setLineDash([3,5]); ctx.stroke(); ctx.setLineDash([]);
+
+      /* Card body */
+      ctx.shadowColor=city.c; ctx.shadowBlur=20; ctx.globalAlpha=fade*0.92;
+      rrect(tx,ty,CW2,CH2,12);
+      ctx.fillStyle='rgba(4,4,16,0.95)'; ctx.fill(); ctx.shadowBlur=0;
+
+      /* Glowing border */
+      rrect(tx,ty,CW2,CH2,12);
+      const bg=ctx.createLinearGradient(tx,ty,tx+CW2,ty+CH2);
+      bg.addColorStop(0,city.c+'99'); bg.addColorStop(1,city.c+'22');
+      ctx.strokeStyle=bg; ctx.lineWidth=1.6; ctx.globalAlpha=fade; ctx.stroke();
+
+      /* Top colour accent bar */
+      rrect(tx+2,ty+2,CW2-4,5,3);
+      ctx.fillStyle=city.c; ctx.globalAlpha=fade*0.9; ctx.fill();
+
+      ctx.textAlign='left'; ctx.globalAlpha=fade;
+
+      /* City name */
+      ctx.font='bold 15px "Space Grotesk",sans-serif';
+      ctx.fillStyle='#ffffff';
+      ctx.fillText(city.name,tx+13,ty+28);
+
+      /* Role pill */
+      ctx.font='bold 8.5px "Space Grotesk",sans-serif';
+      const rw=ctx.measureText(city.role).width+14;
+      rrect(tx+13,ty+35,rw,17,4);
+      ctx.fillStyle=city.c+'28'; ctx.fill();
+      ctx.fillStyle=city.c; ctx.fillText(city.role,tx+20,ty+47);
+
+      /* State */
+      ctx.font='11px "Space Grotesk",sans-serif';
+      ctx.fillStyle='rgba(255,255,255,0.55)';
+      ctx.fillText(city.state,tx+13,ty+68);
+
+      /* Year */
+      ctx.font='bold 10px "Space Grotesk",sans-serif';
+      ctx.fillStyle=city.c; ctx.globalAlpha=fade*0.95;
+      ctx.fillText(city.yr,tx+13,tx===8||tx===W-CW2-8?ty+86:ty+86);
+
+      ctx.globalAlpha=1; ctx.textAlign='start'; ctx.shadowBlur=0;
+    }
+
+    ctx.textAlign='start'; ctx.shadowBlur=0; ctx.globalAlpha=1;
+  })();
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   NAV SCROLL
+   ═══════════════════════════════════════════════════════════════ */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>60));
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL REVEAL
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const ob=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.13});
+  document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el=>ob.observe(el));
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   STAT COUNTERS
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const cob=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.4});
+  document.querySelectorAll('.sc2').forEach(c=>cob.observe(c));
+  const nob=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const el=e.target,to=+el.dataset.to,sfx=el.dataset.sfx||'';
+      const t0=performance.now();
+      (function tick(now){
+        const p=Math.min((now-t0)/2000,1),ease=1-Math.pow(1-p,4);
+        el.textContent=Math.floor(ease*to).toLocaleString()+sfx;
+        if(p<1)requestAnimationFrame(tick); else el.textContent=to.toLocaleString()+sfx;
+      })(t0);
+      nob.unobserve(el);
+    });
+  },{threshold:.5});
+  document.querySelectorAll('.snum[data-to]').forEach(n=>nob.observe(n));
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   3D CARD TILT
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const card=document.getElementById('c3d');
+  if(!card)return;
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(900px) rotateY(${x*24}deg) rotateX(${-y*20}deg) scale(1.04)`;
+    card.style.transition='transform .1s ease';
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transition='transform .65s ease';card.style.transform='perspective(900px) rotateY(0) rotateX(0) scale(1)'});
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   SERVICES DRAG SCROLL
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const el=document.getElementById('strk');
+  if(!el)return;
+  let down=false,sx,sl;
+  el.addEventListener('mousedown',e=>{down=true;sx=e.pageX-el.offsetLeft;sl=el.scrollLeft});
+  document.addEventListener('mouseup',()=>down=false);
+  el.addEventListener('mousemove',e=>{if(!down)return;e.preventDefault();el.scrollLeft=sl-(e.pageX-el.offsetLeft-sx)*1.8});
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   GALLERY BG — floating CMYK color grids or drifting micro dots
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const {cv,ctx}=initCv('gallery-bg');
+  if(!cv) return;
+  const dots=[];
+  function build(){
+    dots.length=0;
+    const W=cv.width,H=cv.height;
+    for(let i=0;i<32;i++){
+      dots.push({
+        x:Math.random()*W,
+        y:Math.random()*H,
+        vx:(Math.random()-.5)*.25,
+        vy:(Math.random()-.5)*.25,
+        c:CMYK4[i%4],
+        sz:1.5+Math.random()*3,
+        ph:Math.random()*PI2
+      });
+    }
+  }
+  build(); window.addEventListener('resize',build);
+  (function anim(){
+    requestAnimationFrame(anim);
+    const W=cv.width,H=cv.height;
+    ctx.clearRect(0,0,W,H);
+    dots.forEach(d=>{
+      d.x+=d.vx; d.y+=d.vy;
+      if(d.x<0) d.x=W; if(d.x>W) d.x=0;
+      if(d.y<0) d.y=H; if(d.y>H) d.y=0;
+      d.ph+=0.01;
+      const alpha=.05+Math.sin(d.ph)*.03;
+      ctx.beginPath(); ctx.arc(d.x,d.y,d.sz,0,PI2);
+      ctx.fillStyle=d.c; ctx.globalAlpha=alpha; ctx.fill();
+    });
+    ctx.globalAlpha=1;
+  })();
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   GALLERY INTERACTIVE TABS
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const tabs = document.querySelectorAll('.g-tab');
+  const views = document.querySelectorAll('.g-view');
+  if(!tabs.length || !views.length) return;
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const idx = tab.dataset.index;
+      tabs.forEach(t => t.classList.remove('active'));
+      views.forEach(v => v.classList.remove('active'));
+      
+      tab.classList.add('active');
+      views[idx].classList.add('active');
+    });
+  });
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   LIGHTBOX FOR IMAGE PREVIEWS
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbCap = document.getElementById('lightbox-caption');
+  const lbClose = document.getElementById('lightbox-close');
+  
+  if(!lightbox || !lbImg) return;
+  
+  // Attach event to zoomable elements
+  document.addEventListener('click', e => {
+    const trigger = e.target.closest('.svc-img') || e.target.closest('.g-main-img') || e.target.closest('.ac-card img');
+    if(trigger) {
+      const src = trigger.getAttribute('src');
+      const alt = trigger.getAttribute('alt') || "Kanika Digital Premium Print Installation";
+      
+      lbImg.setAttribute('src', src);
+      lbCap.textContent = alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden'; // prevent page scrolling
+    }
+  });
+  
+  const close = () => {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+  
+  lbClose.addEventListener('click', close);
+  lightbox.addEventListener('click', e => {
+    if(e.target === lightbox || e.target === lightbox.querySelector('.lightbox-content')) {
+      close();
+    }
+  });
+  
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape') close();
+  });
+})();
+</script>
+</body>
+</html>
