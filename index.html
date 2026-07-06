@@ -25,9 +25,9 @@ body{background:var(--dark);color:#fff;font-family:'Space Grotesk',sans-serif;ov
 /* ══ NAV ══ */
 nav{position:fixed;top:0;width:100%;z-index:999;padding:22px 64px;display:flex;align-items:center;justify-content:space-between;transition:.4s}
 nav.sc{background:rgba(8,6,22,.95);backdrop-filter:blur(24px);padding:13px 64px;border-bottom:1px solid rgba(34,211,238,.09)}
-.nlogo-wrap{display:flex;align-items:center;gap:10px}
-.nlogo-icon{width:30px;height:30px;flex-shrink:0}
-.nlogo{font-family:'Inter',sans-serif;font-size:1rem;font-weight:900;letter-spacing:3px;background:linear-gradient(135deg,var(--c),var(--m));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nlogo-wrap{display:flex;align-items:center}
+.nlogo-img{height:42px;width:auto;display:block;transition:height .4s}
+nav.sc .nlogo-img{height:34px}
 .nlinks{display:flex;gap:36px;list-style:none}
 .nlinks a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.5px;transition:.3s;position:relative}
 .nlinks a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--c);transition:.3s}
@@ -385,25 +385,6 @@ footer{position:relative;overflow:hidden;background:#05040e}
 
 /* ── HERO LOGO ── */
 .ft-hero{padding:76px 0 52px;text-align:center;position:relative}
-.ft-logo-wrap{position:relative;display:inline-block}
-.ft-logo-icon{display:block;width:clamp(64px,8vw,104px);height:auto;margin:0 auto 16px;filter:drop-shadow(0 10px 30px rgba(0,0,0,.45))}
-/* blurred glow clone behind logo */
-.ft-logo-glow{
-  font-family:'Inter',sans-serif;font-size:clamp(3rem,8.5vw,9rem);font-weight:900;
-  letter-spacing:-4px;line-height:.9;
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,var(--c),var(--m),var(--y));
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  filter:blur(22px);opacity:.55;pointer-events:none;user-select:none;
-  background-size:200%;animation:gsh 5s ease infinite;
-}
-.ft-logo-xl{
-  font-family:'Inter',sans-serif;font-size:clamp(3rem,8.5vw,9rem);font-weight:900;
-  letter-spacing:-4px;line-height:.9;
-  background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,.85) 100%);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  position:relative;z-index:1;
-}
 /* semi-transparent overlay so grid content stays readable over canvas */
 .ft-grid-overlay{
   position:relative;
@@ -659,7 +640,6 @@ footer{position:relative;overflow:hidden;background:#05040e}
   .s-wrap,.clhdr{padding-left:20px;padding-right:20px}
   .ft-inner{padding:0 20px}
   .ft-hero{padding:48px 0 36px}
-  .ft-logo-xl,.ft-logo-glow{letter-spacing:-2px}
   .ft-grid{grid-template-columns:1fr;gap:0}
   .ft-col{padding:28px 0;border-left:none!important;border-top:1px solid rgba(255,255,255,.05)}
   .ft-col:first-child{border-top:none;padding-top:16px}
@@ -700,23 +680,10 @@ footer{position:relative;overflow:hidden;background:#05040e}
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="kd-mark" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(255,255,255,.24)" stroke-width="2" stroke-dasharray="228 48" transform="rotate(-110 50 50)"/>
-      <g transform="translate(50,50) rotate(-35) scale(1.05) translate(-50,-50)"><path d="M50,50 C38,44 30,30 36,12 C40,2 48,0 50,4 C54,14 56,28 54,40 C53,45 51,48 50,50 Z" style="fill:var(--c)"/></g>
-      <g transform="translate(50,50) rotate(55) scale(.6) translate(-50,-50)"><path d="M50,50 C38,44 30,30 36,12 C40,2 48,0 50,4 C54,14 56,28 54,40 C53,45 51,48 50,50 Z" style="fill:var(--y)"/></g>
-      <g transform="translate(50,50) rotate(210) scale(.85) translate(-50,-50)"><path d="M50,50 C38,44 30,30 36,12 C40,2 48,0 50,4 C54,14 56,28 54,40 C53,45 51,48 50,50 Z" style="fill:var(--m)"/></g>
-      <g transform="translate(50,50) rotate(130) scale(1.25) translate(-50,-50)"><path d="M50,50 C38,44 30,30 36,12 C40,2 48,0 50,4 C54,14 56,28 54,40 C53,45 51,48 50,50 Z" style="fill:var(--g)"/></g>
-    </symbol>
-  </defs>
-</svg>
-
 <!-- NAV -->
 <nav id="nav">
   <div class="nlogo-wrap">
-    <svg class="nlogo-icon" viewBox="0 0 100 100" aria-hidden="true"><use href="#kd-mark"></use></svg>
-    <div class="nlogo">KANIKA ◆ DIGITAL</div>
+    <img src="assets/logo-header.png" alt="Kanika Digital Prints &amp; Solutions LLP" class="nlogo-img">
   </div>
   <ul class="nlinks">
     <li><a href="#about">About</a></li>
@@ -1417,11 +1384,6 @@ footer{position:relative;overflow:hidden;background:#05040e}
 
     <!-- Cinematic brand hero -->
     <div class="ft-hero">
-      <div class="ft-logo-wrap">
-        <svg class="ft-logo-icon" viewBox="0 0 100 100" aria-hidden="true"><use href="#kd-mark"></use></svg>
-        <div class="ft-logo-glow" aria-hidden="true">KANIKA ◆ DIGITAL</div>
-        <div class="ft-logo-xl">KANIKA ◆ DIGITAL</div>
-      </div>
       <div class="ft-sub-tag">India's Premier Large Format Print Partner</div>
     </div>
 
